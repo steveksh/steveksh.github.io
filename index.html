@@ -209,17 +209,27 @@
     }
     @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
     .about-text p { color: var(--muted); margin-bottom: 1rem; }
+    .skills-categories { display: flex; flex-direction: column; gap: 1rem; }
+    .skill-category {}
+    .skill-category-label {
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
     .skills-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
     .skill-tag {
       background: var(--bg);
       border: 1px solid var(--border);
       color: var(--muted);
-      font-size: 0.8rem;
-      padding: 4px 10px;
+      font-size: 0.78rem;
+      padding: 3px 9px;
       border-radius: 6px;
     }
 
@@ -472,22 +482,77 @@
           cloud-native data infrastructure.
         </p>
       </div>
-      <div>
-        <p style="color:var(--muted); font-size:0.85rem; margin-bottom:1rem;">Tech Stack</p>
-        <div class="skills-list">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">PyTorch</span>
-          <span class="skill-tag">TensorFlow</span>
-          <span class="skill-tag">scikit-learn</span>
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">R</span>
-          <span class="skill-tag">SQL</span>
-          <span class="skill-tag">Google Cloud</span>
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">Jupyter</span>
-          <span class="skill-tag">Flask</span>
-          <span class="skill-tag">Streamlit</span>
+      <div class="skills-categories">
+
+        <div class="skill-category">
+          <div class="skill-category-label">Languages</div>
+          <div class="skills-list">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">R</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">C++ (entry)</span>
+          </div>
         </div>
+
+        <div class="skill-category">
+          <div class="skill-category-label">Data Science & Engineering</div>
+          <div class="skills-list">
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">Ray</span>
+            <span class="skill-tag">Sklearn</span>
+            <span class="skill-tag">Keras</span>
+            <span class="skill-tag">Polars</span>
+            <span class="skill-tag">KubeFlow</span>
+            <span class="skill-tag">Airflow</span>
+            <span class="skill-tag">PySpark</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-label">Frameworks</div>
+          <div class="skills-list">
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Django</span>
+            <span class="skill-tag">LangChain</span>
+            <span class="skill-tag">LangGraph</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-label">Dev / MLOps</div>
+          <div class="skills-list">
+            <span class="skill-tag">MLFlow</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">Linux</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-label">Cloud Platforms</div>
+          <div class="skills-list">
+            <span class="skill-tag">GCP · BigQuery</span>
+            <span class="skill-tag">Vertex AI</span>
+            <span class="skill-tag">Cloud Run</span>
+            <span class="skill-tag">Cloud SQL</span>
+            <span class="skill-tag">Azure · Databricks</span>
+            <span class="skill-tag">ML Studio</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-label">BI & Visualisation</div>
+          <div class="skills-list">
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Looker</span>
+            <span class="skill-tag">Tableau</span>
+            <span class="skill-tag">R Markdown</span>
+            <span class="skill-tag">Shiny</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
