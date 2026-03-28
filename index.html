@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Steve Kan | Lead Developer & Data Scientist</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --accent2: #3fb950;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --tag-bg: #1f2937;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 100px 2rem 80px;
+      text-align: center;
+    }
+    .hero .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero .tagline {
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .hero .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .badge {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .badge.green { color: var(--accent2); }
+    .hero .cta {
+      display: inline-flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #0d1117; }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); }
+
+    /* SECTIONS */
+    section { padding: 70px 2rem; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .section-line {
+      width: 40px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ABOUT */
+    #about { background: var(--surface); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-tag {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.2rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.7rem;
+    }
+    .card-icon { font-size: 1.3rem; }
+    .card h3 { font-size: 1rem; font-weight: 700; }
+    .card h3 a { color: var(--text); text-decoration: none; }
+    .card h3 a:hover { color: var(--accent); }
+    .card p { color: var(--muted); font-size: 0.85rem; flex: 1; margin-bottom: 1rem; }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+    .lang-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 4px;
+    }
+    .lang { font-size: 0.78rem; color: var(--muted); display: flex; align-items: center; }
+    .card-link {
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .card-link:hover { text-decoration: underline; }
+
+    /* highlight card */
+    .card.featured {
+      border-color: #58a6ff55;
+      background: linear-gradient(135deg, #161b22, #1a2030);
+    }
+
+    /* EXPERIENCE */
+    #experience { background: var(--surface); }
+    .timeline { display: flex; flex-direction: column; gap: 1.8rem; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    @media (max-width: 560px) {
+      .timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
+    }
+    .timeline-date { color: var(--muted); font-size: 0.82rem; padding-top: 3px; }
+    .timeline-content h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .timeline-content .company { color: var(--accent); font-size: 0.85rem; margin-bottom: 0.4rem; }
+    .timeline-content p { color: var(--muted); font-size: 0.85rem; }
+
+    /* CONTACT */
+    #contact { text-align: center; }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.88rem;
+      transition: border-color 0.2s;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">steveksh</a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img
+    src="https://github.com/steveksh.png"
+    alt="Steve Kan"
+    class="avatar"
+    onerror="this.style.display='none'"
+  />
+  <h1>Hi, I'm <span>Steve Kan</span></h1>
+  <p class="tagline">Lead Developer &nbsp;·&nbsp; Data Scientist &nbsp;·&nbsp; AI & ML</p>
+  <div class="badges">
+    <span class="badge">Machine Learning</span>
+    <span class="badge">Reinforcement Learning</span>
+    <span class="badge">Recommendation Systems</span>
+    <span class="badge">Data Science</span>
+    <span class="badge">LLMs</span>
+  </div>
+  <div class="cta">
+    <a href="https://github.com/steveksh" class="btn btn-primary" target="_blank">GitHub Profile</a>
+    <a href="#projects" class="btn btn-outline">View Projects</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <div class="section-line"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm an AI Engineer and Data Scientist passionate about building intelligent systems —
+          from recommendation engines and reinforcement learning agents to data-driven web applications.
+        </p>
+        <p>
+          I love working at the intersection of research and engineering, turning cutting-edge ML ideas
+          into production-ready systems. Currently focused on LLMs, scalable ML pipelines, and
+          cloud-native data infrastructure.
+        </p>
+      </div>
+      <div>
+        <p style="color:var(--muted); font-size:0.85rem; margin-bottom:1rem;">Tech Stack</p>
+        <div class="skills-list">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">scikit-learn</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">R</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Google Cloud</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Jupyter</span>
+          <span class="skill-tag">Flask</span>
+          <span class="skill-tag">Streamlit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+    <div class="section-line"></div>
+    <div class="projects-grid">
+
+      <div class="card featured">
+        <div class="card-header">
+          <span class="card-icon">🧬</span>
+          <h3><a href="https://github.com/steveksh/Federated-Learning" target="_blank">Federated Learning</a></h3>
+        </div>
+        <p>Original research and implementation on Federated Learning — distributed ML training across decentralized devices without sharing raw data.</p>
+        <div class="card-footer">
+          <span class="lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+          <a href="https://github.com/steveksh/Federated-Learning" class="card-link" target="_blank">View →</a>
+        </div>
+      </div>
+
+      <div class="card featured">
+        <div class="card-header">
+          <span class="card-icon">🃏</span>
+          <h3><a href="https://github.com/steveksh/Black-Jack-RL" target="_blank">Black-Jack-RL</a></h3>
+        </div>
+        <p>Reinforcement learning agent that learns to play Blackjack optimally using classic RL algorithms. Part of the SDSC 6007 coursework.</p>
+        <div class="card-footer">
+          <span class="lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter Notebook</span>
+          <a href="https://github.com/steveksh/Black-Jack-RL" class="card-link" target="_blank">View →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">⭐</span>
+          <h3><a href="https://github.com/steveksh/recommendation" target="_blank">Recommendation System</a></h3>
+        </div>
+        <p>Collaborative filtering and content-based recommendation engine built from scratch in Python/Jupyter.</p>
+        <div class="card-footer">
+          <span class="lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter Notebook</span>
+          <a href="https://github.com/steveksh/recommendation" class="card-link" target="_blank">View →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">✈️</span>
+          <h3><a href="https://github.com/steveksh/Flight-Planner-Web-App" target="_blank">Flight Planner</a></h3>
+        </div>
+        <p>A web application for flight planning built with Python — handles routing, scheduling, and data lookup.</p>
+        <div class="card-footer">
+          <span class="lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+          <a href="https://github.com/steveksh/Flight-Planner-Web-App" class="card-link" target="_blank">View →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">🏷️</span>
+          <h3><a href="https://github.com/steveksh/Product-Ratings-Classifier" target="_blank">Product Classifier</a></h3>
+        </div>
+        <p>NLP-based classifier that predicts product ratings from text reviews using machine learning techniques.</p>
+        <div class="card-footer">
+          <span class="lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter Notebook</span>
+          <a href="https://github.com/steveksh/Product-Ratings-Classifier" class="card-link" target="_blank">View →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">📊</span>
+          <h3><a href="https://github.com/steveksh/rdashboard.io" target="_blank">R Markdown Dashboard</a></h3>
+        </div>
+        <p>Interactive data visualization dashboard built with R Markdown — showcasing analytical storytelling with real datasets.</p>
+        <div class="card-footer">
+          <span class="lang"><span class="lang-dot" style="background:#198CE7"></span>HTML / R</span>
+          <a href="https://github.com/steveksh/rdashboard.io" class="card-link" target="_blank">View →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <h2 class="section-title">Experience & Education</h2>
+    <div class="section-line"></div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-date">Sep 2024 – Present</div>
+        <div class="timeline-content">
+          <h4>Lead Developer</h4>
+          <div class="company">Learn2Play · Hong Kong</div>
+          <p>Building an AI-powered app to help kids learn. Fully funded by Cyberport Creative Micro Fund (CCMF).</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Jun 2024 – Jan 2026</div>
+        <div class="timeline-content">
+          <h4>Regional Data Scientist</h4>
+          <div class="company">Richemont</div>
+          <p>AI & ML · MLOps — building and deploying machine learning models across the region.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Jul 2022 – Jun 2024</div>
+        <div class="timeline-content">
+          <h4>Data Scientist</h4>
+          <div class="company">Hotmob Limited · Hong Kong</div>
+          <p>NLP & ML — built language models and ML pipelines alongside API development.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Jan 2020 – Aug 2020</div>
+        <div class="timeline-content">
+          <h4>Research Analyst</h4>
+          <div class="company">Ontario Ministry of Infrastructure · Toronto</div>
+          <p>Geocoding and location analysis — reporting, data analysis, and spatial data workflows.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">May 2026</div>
+        <div class="timeline-content">
+          <h4>Professional Machine Learning Engineer (PMLE)</h4>
+          <div class="company">Google Cloud · Scheduled</div>
+          <p>Currently preparing for the GCP Professional Machine Learning Engineer certification exam.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="section-line" style="margin: 0 auto 1rem;"></div>
+    <p style="color:var(--muted); max-width:480px; margin:0 auto;">
+      Open to interesting AI/ML projects, collaborations, and opportunities. Feel free to reach out!
+    </p>
+    <div class="contact-links">
+      <a href="https://github.com/steveksh" class="contact-link" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="mailto:steveksh@gmail.com" class="contact-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Built with GitHub Pages &nbsp;·&nbsp; © 2026 Steve Kan</p>
+</footer>
+
+</body>
+</html>
