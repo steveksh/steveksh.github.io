@@ -918,5 +918,157 @@
   init();
   loop();
 </script>
+
+<!-- GOJO EASTER EGG -->
+<button id="gojo-btn" title="Don't even try" onclick="triggerDomain()">∞</button>
+
+<div id="domain" onclick="closeDomain()">
+  <video id="gojo-video" loop playsinline>
+    <source src="gojo_domain.mp4" type="video/mp4">
+  </video>
+  <div id="domain-overlay"></div>
+  <div id="domain-content">
+    <div id="domain-top">DOMAIN EXPANSION</div>
+    <div id="domain-title">Unlimited Void</div>
+    <div id="domain-quote">"Throughout Heaven and Earth,<br>I alone am the Honoured One."</div>
+    <div id="domain-sub">— Gojo Satoru</div>
+    <div id="domain-close">click anywhere to escape... if you can</div>
+  </div>
+</div>
+
+<style>
+  #gojo-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    border: 2px solid #7c3aed;
+    background: rgba(13,17,23,0.85);
+    color: #a78bfa;
+    font-size: 1.4rem;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 20px #7c3aed66, 0 0 40px #7c3aed33;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: gojo-pulse 3s ease-in-out infinite;
+  }
+  #gojo-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 30px #7c3aedaa, 0 0 60px #7c3aed55;
+  }
+  @keyframes gojo-pulse {
+    0%, 100% { box-shadow: 0 0 20px #7c3aed66, 0 0 40px #7c3aed33; }
+    50%       { box-shadow: 0 0 35px #a78bfaaa, 0 0 70px #7c3aed66; }
+  }
+
+  #domain {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  #domain.active { display: flex; align-items: center; justify-content: center; }
+
+  #gojo-video {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  #domain-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(2,0,15,0.45), rgba(2,0,15,0.65));
+    z-index: 1;
+  }
+
+  #domain-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    animation: domain-appear 1s ease forwards;
+    opacity: 0;
+  }
+  @keyframes domain-appear {
+    0%   { opacity: 0; transform: scale(0.85); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  #domain-top {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5em;
+    color: #a78bfa;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    animation: flicker 4s ease-in-out infinite;
+  }
+  @keyframes flicker {
+    0%,100% { opacity: 1; } 92% { opacity: 1; } 93% { opacity: 0.3; } 94% { opacity: 1; } 96% { opacity: 0.5; } 97% { opacity: 1; }
+  }
+
+  #domain-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #e0d7ff, #a78bfa, #7c3aed, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2rem;
+    animation: shimmer 3s linear infinite;
+    background-size: 200%;
+  }
+  @keyframes shimmer {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+
+  #domain-quote {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: #e2e8f0;
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 0.8rem;
+    text-shadow: 0 0 30px #7c3aed;
+  }
+
+  #domain-sub {
+    color: #a78bfa;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+  }
+
+  #domain-close {
+    color: #64748b;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+</style>
+
+<script>
+  function triggerDomain() {
+    const domain = document.getElementById('domain');
+    const video = document.getElementById('gojo-video');
+    domain.classList.add('active');
+    video.currentTime = 0;
+    video.volume = 1;
+    video.play();
+  }
+
+  function closeDomain() {
+    const domain = document.getElementById('domain');
+    const video = document.getElementById('gojo-video');
+    domain.classList.remove('active');
+    video.pause();
+    video.currentTime = 0;
+  }
+
+</script>
 </body>
 </html>
