@@ -26,13 +26,57 @@
 
     <div class="sidebar-divider"></div>
 
-    <div class="sidebar-tags">
-      <span class="sidebar-tag">Federated Learning</span>
-      <span class="sidebar-tag">Recommendation Systems</span>
-      <span class="sidebar-tag">Reinforcement Learning</span>
-      <span class="sidebar-tag">LLM Agents</span>
-      <span class="sidebar-tag">MLOps</span>
-      <span class="sidebar-tag">Multimodal Learning</span>
+    <div class="sidebar-sections">
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-label">ML &amp; AI</div>
+        <div class="sidebar-tags">
+          <span class="sidebar-tag sidebar-tag--amber">PyTorch</span>
+          <span class="sidebar-tag sidebar-tag--amber">TensorFlow / Keras</span>
+          <span class="sidebar-tag sidebar-tag--amber">XGBoost · LightGBM</span>
+          <span class="sidebar-tag sidebar-tag--amber">Transformers</span>
+          <span class="sidebar-tag sidebar-tag--amber">Deep Learning</span>
+          <span class="sidebar-tag sidebar-tag--amber">RAG</span>
+          <span class="sidebar-tag sidebar-tag--amber">A2A Agents</span>
+          <span class="sidebar-tag sidebar-tag--amber">Time Series</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-label">Cloud &amp; MLOps</div>
+        <div class="sidebar-tags">
+          <span class="sidebar-tag sidebar-tag--blue">GCP</span>
+          <span class="sidebar-tag sidebar-tag--blue">Azure</span>
+          <span class="sidebar-tag sidebar-tag--blue">Databricks</span>
+          <span class="sidebar-tag sidebar-tag--blue">MLOps</span>
+          <span class="sidebar-tag sidebar-tag--blue">Docker</span>
+          <span class="sidebar-tag sidebar-tag--blue">CI/CD</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-label">Engineering</div>
+        <div class="sidebar-tags">
+          <span class="sidebar-tag sidebar-tag--green">Python</span>
+          <span class="sidebar-tag sidebar-tag--green">FastAPI</span>
+          <span class="sidebar-tag sidebar-tag--green">LangGraph</span>
+          <span class="sidebar-tag sidebar-tag--green">REST APIs</span>
+          <span class="sidebar-tag sidebar-tag--green">SaaS</span>
+          <span class="sidebar-tag sidebar-tag--green">Platform Integrations</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-label">Domains</div>
+        <div class="sidebar-tags">
+          <span class="sidebar-tag sidebar-tag--gray">Insurance</span>
+          <span class="sidebar-tag sidebar-tag--gray">Luxury Retail</span>
+          <span class="sidebar-tag sidebar-tag--gray">Marketing &amp; Ad-Tech</span>
+          <span class="sidebar-tag sidebar-tag--gray">APAC Markets</span>
+          <span class="sidebar-tag sidebar-tag--gray">Customer Analytics</span>
+        </div>
+      </div>
+
     </div>
 
     <div class="sidebar-links">
@@ -48,9 +92,9 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         <span>Email</span>
       </a>
-      <a href="blog/index.html" class="sidebar-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        <span>Blog</span>
+      <a href="https://www.learn2play.app/" class="sidebar-link" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M10 8l6 4-6 4V8z"/></svg>
+        <span>Learn2Play</span>
       </a>
     </div>
   </aside>
@@ -60,7 +104,7 @@
 
     <!-- TAB BAR -->
     <div class="tab-bar" role="tablist">
-      <button class="tab-btn active" data-tab="research" role="tab" aria-selected="true" id="btn-research" aria-controls="tab-research">Research</button>
+      <button class="tab-btn active" data-tab="research" role="tab" aria-selected="true" id="btn-research" aria-controls="tab-research">About Me</button>
       <button class="tab-btn" data-tab="papers" role="tab" aria-selected="false" id="btn-papers" aria-controls="tab-papers">Papers</button>
       <button class="tab-btn" data-tab="projects" role="tab" aria-selected="false" id="btn-projects" aria-controls="tab-projects">Projects</button>
       <button class="tab-btn" data-tab="experience" role="tab" aria-selected="false" id="btn-experience" aria-controls="tab-experience">Experience</button>
@@ -71,24 +115,56 @@
     <div class="tab-content-wrapper">
 
       <!-- RESEARCH -->
-      <div class="tab-pane active" id="tab-research" role="tabpanel" aria-labelledby="btn-research">
-        <div class="pane-label">Research</div>
-        <h2 class="pane-title">Research Interests</h2>
-        <p class="pane-sub">Areas I study, build, and publish in.</p>
-        <div class="research-tags">
-          <span class="research-tag">Federated Learning</span>
-          <span class="research-tag">Recommendation Systems</span>
-          <span class="research-tag">Reinforcement Learning</span>
-          <span class="research-tag">LLM Agents</span>
-          <span class="research-tag">MLOps</span>
-          <span class="research-tag">Multimodal Learning</span>
-        </div>
-        <div class="currently-card">
-          <div class="currently-label">Currently</div>
-          <div class="currently-text">
-            Deepening reinforcement learning algorithms — policy gradients, model-based RL, and planning.
-            Next up: robotics and frontend development.
+      <div class="tab-pane tab-pane--wide active" id="tab-research" role="tabpanel" aria-labelledby="btn-research">
+        <div class="pane-label">About Me</div>
+        <p class="bio-intro">AI Engineer based in Hong Kong with a background spanning econometrics, academic ML research, and production AI systems. I design and ship end-to-end solutions — from model development and REST API design to cloud deployments on GCP and Azure, platform integrations, and in-house SaaS development. Across insurance, luxury retail, and ad-tech, I've led data platform transformations, built multi-agent AI systems, and driven AI initiatives across APAC. I care about systems that are scalable, maintainable, and actually move the needle.</p>
+
+        <div id="network-graph" class="network-container"></div>
+
+        <div class="pane-label" style="margin-top:2rem">Recent Work</div>
+        <div class="showcase-grid">
+
+          <div class="showcase-card showcase-card--video">
+            <div class="showcase-tag">Reinforcement Learning</div>
+            <div class="showcase-title">Blackjack RL Agent</div>
+            <p class="showcase-desc">Training a reinforcement learning agent to play Blackjack optimally using policy evaluation, Monte Carlo methods, and value iteration — from coursework research at CityU.</p>
+            <video controls preload="metadata" class="showcase-video">
+              <source src="blackjack_rl.mp4" type="video/mp4">
+            </video>
           </div>
+
+        </div>
+
+        <div class="pane-label" style="margin-top:2rem">Experience Highlights</div>
+        <div class="bio-blobs">
+
+          <div class="bio-blob">
+            <p class="bio-blob-desc">Digital transformation &amp; ML infrastructure for enterprise clients across insurance and media.</p>
+            <div class="bio-blob-header">
+              <span class="bio-blob-company">Hotmob</span>
+              <span class="bio-blob-date">2022 – 2024</span>
+            </div>
+            <p>Led pipeline development and digital transformation for Prudential and BLP — building in-house ETL pipelines, migrating legacy SaaS systems to M Query and DEX, and shipping MLOps dashboards. Ran POCs on Azure, Databricks, and ML Studio to establish scalable ML infrastructure.</p>
+          </div>
+
+          <div class="bio-blob">
+            <p class="bio-blob-desc">Led all AI initiatives across APAC retail — scalable data products, recommendation engines, and LLM agents.</p>
+            <div class="bio-blob-header">
+              <span class="bio-blob-company">Richemont</span>
+              <span class="bio-blob-date">2024 – 2026</span>
+            </div>
+            <p>Designed multiple scalable data products that cut overhead and drove €3M+ in incremental APAC revenue. Led the codebase transformation of the data platform and spearheaded nearly all AI initiatives across the APAC data team in Hong Kong — recommendation systems, forecasting models, federated learning, and LLM agents.</p>
+          </div>
+
+          <div class="bio-blob">
+            <p class="bio-blob-desc">Building AI solutions for APAC insurers — reducing manual workloads and modernising the policy lifecycle.</p>
+            <div class="bio-blob-header">
+              <span class="bio-blob-company">Wipro Capco</span>
+              <span class="bio-blob-date">2026 – Present</span>
+            </div>
+            <p>Building AI solutions for APAC insurers — reducing manual workloads, improving straight-through processing (STP), and integrating AI across the policy lifecycle via agents, cloud platforms, and A2A orchestration.</p>
+          </div>
+
         </div>
       </div>
 
@@ -232,6 +308,15 @@
             </div>
           </div>
 
+        </div>
+
+        <div class="pane-label" style="margin-top:2rem">Demo</div>
+        <h3 class="pane-title" style="font-size:1.1rem;margin-bottom:0.25rem">Blackjack RL Agent</h3>
+        <p class="pane-sub">Reinforcement learning agent learning to play Blackjack optimally.</p>
+        <div class="video-card">
+          <video controls preload="metadata" style="width:100%;border-radius:6px;display:block">
+            <source src="blackjack_rl.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
 
@@ -399,5 +484,7 @@
 </div><!-- end site-wrapper -->
 
 <script src="js/main.js"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="js/network.js"></script>
 </body>
 </html>
