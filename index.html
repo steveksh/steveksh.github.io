@@ -3,745 +3,284 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Steve Kan | Lead Developer & Data Scientist</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #0d1117;
-      --surface: #161b22;
-      --border: #30363d;
-      --accent: #58a6ff;
-      --accent2: #3fb950;
-      --text: #e6edf3;
-      --muted: #8b949e;
-      --tag-bg: #1f2937;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-    }
-
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      isolation: isolate;
-      background: rgba(13, 17, 23, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-    }
-    nav .logo {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--accent);
-      text-decoration: none;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
-    nav ul a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-    nav ul a:hover { color: var(--text); }
-
-    /* AURORA — fixed full page */
-    .aurora {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      filter: blur(100px);
-      opacity: 0.4;
-      pointer-events: none;
-    }
-    .aurora span {
-      position: absolute;
-      border-radius: 50%;
-    }
-    .aurora span:nth-child(1) {
-      width: 700px; height: 700px;
-      top: -200px; left: -150px;
-      background: radial-gradient(circle, #1a6dff 0%, transparent 70%);
-      animation: drift1 14s ease-in-out infinite alternate;
-    }
-    .aurora span:nth-child(2) {
-      width: 600px; height: 600px;
-      top: -100px; right: -100px;
-      background: radial-gradient(circle, #7c3aed 0%, transparent 70%);
-      animation: drift2 18s ease-in-out infinite alternate;
-    }
-    .aurora span:nth-child(3) {
-      width: 500px; height: 500px;
-      top: 50%; left: 20%;
-      background: radial-gradient(circle, #0ea5e9 0%, transparent 70%);
-      animation: drift3 12s ease-in-out infinite alternate;
-    }
-    .aurora span:nth-child(4) {
-      width: 450px; height: 450px;
-      bottom: 10%; right: 5%;
-      background: radial-gradient(circle, #6366f1 0%, transparent 70%);
-      animation: drift1 20s ease-in-out infinite alternate-reverse;
-    }
-    .aurora span:nth-child(5) {
-      width: 400px; height: 400px;
-      bottom: 30%; left: 60%;
-      background: radial-gradient(circle, #0d9488 0%, transparent 70%);
-      animation: drift2 16s ease-in-out infinite alternate;
-    }
-    @keyframes drift1 {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(100px, 80px) scale(1.2); }
-    }
-    @keyframes drift2 {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(-80px, 100px) scale(1.25); }
-    }
-    @keyframes drift3 {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(60px, -90px) scale(1.15); }
-    }
-
-    #neural { opacity: 0.35; }
-
-    /* HERO */
-    .hero-wrapper { position: relative; }
-    .hero {
-      position: relative;
-      z-index: 2;
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 100px 2rem 80px;
-      text-align: center;
-    }
-    .hero .avatar {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 0.5rem;
-    }
-    .hero h1 span { color: var(--accent); }
-    .hero .tagline {
-      font-size: 1.15rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-    .hero .badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    .badge {
-      background: var(--tag-bg);
-      border: 1px solid var(--border);
-      color: var(--accent);
-      font-size: 0.78rem;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-weight: 500;
-    }
-    .badge.green { color: var(--accent2); }
-    .hero .cta {
-      display: inline-flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 22px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: opacity 0.2s, transform 0.1s;
-    }
-    .btn:hover { opacity: 0.85; transform: translateY(-1px); }
-    .btn-primary { background: var(--accent); color: #0d1117; }
-    .btn-outline { border: 1px solid var(--border); color: var(--text); }
-
-    /* SECTIONS */
-    section { padding: 70px 2rem; position: relative; z-index: 1; }
-    .container { max-width: 900px; margin: 0 auto; }
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-    }
-    .section-line {
-      width: 40px;
-      height: 3px;
-      background: var(--accent);
-      border-radius: 2px;
-      margin-bottom: 2.5rem;
-    }
-
-    /* ABOUT */
-    #about { background: rgba(22, 27, 34, 0.6);  }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
-    .about-text p { color: var(--muted); margin-bottom: 1rem; }
-    .skills-categories { display: flex; flex-direction: column; gap: 1rem; }
-    .skill-category {}
-    .skill-category-label {
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.4rem;
-    }
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-    .skill-tag {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.78rem;
-      padding: 3px 9px;
-      border-radius: 6px;
-    }
-
-    /* PROJECTS */
-    #projects { background: rgba(22, 27, 34, 0.6);  }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-      gap: 1.2rem;
-    }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.4rem;
-      display: flex;
-      flex-direction: column;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.7rem;
-    }
-    .card-icon { font-size: 1.3rem; }
-    .card h3 { font-size: 1rem; font-weight: 700; }
-    .card h3 a { color: var(--text); text-decoration: none; }
-    .card h3 a:hover { color: var(--accent); }
-    .card p { color: var(--muted); font-size: 0.85rem; flex: 1; margin-bottom: 1rem; }
-    .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: auto;
-    }
-    .lang-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      display: inline-block;
-      margin-right: 4px;
-    }
-    .lang { font-size: 0.78rem; color: var(--muted); display: flex; align-items: center; }
-    .card-link {
-      font-size: 0.78rem;
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .card-link:hover { text-decoration: underline; }
-
-    /* highlight card */
-    .card.featured {
-      border-color: #58a6ff55;
-      background: linear-gradient(135deg, #161b22, #1a2030);
-    }
-
-    /* DEMOS */
-    #demos { background: rgba(13, 17, 23, 0.6);  }
-    .demo-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: border-color 0.2s, transform 0.2s;
-      margin-bottom: 1rem;
-    }
-    .demo-card:last-child { margin-bottom: 0; }
-    .demo-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .demo-card video {
-      width: 100%;
-      max-height: 420px;
-      object-fit: cover;
-      display: block;
-      background: #000;
-    }
-    .demo-card .demo-info {
-      padding: 1rem 1.4rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .demo-info h4 { font-size: 0.95rem; font-weight: 700; }
-    .demo-info p { color: var(--muted); font-size: 0.82rem; margin-top: 0.2rem; }
-
-    /* PAPERS */
-    #papers { background: rgba(22, 27, 34, 0.6);  }
-    .paper-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.4rem 1.6rem;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1.5rem;
-      transition: border-color 0.2s, transform 0.2s;
-      margin-bottom: 1rem;
-    }
-    .paper-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .paper-card:last-child { margin-bottom: 0; }
-    .paper-info h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
-    .paper-info p { color: var(--muted); font-size: 0.85rem; }
-    .paper-tag {
-      font-size: 0.75rem;
-      background: var(--tag-bg);
-      border: 1px solid var(--border);
-      color: var(--accent);
-      padding: 2px 10px;
-      border-radius: 20px;
-      margin-top: 0.5rem;
-      display: inline-block;
-    }
-    .paper-link {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: var(--accent);
-      color: #0d1117;
-      font-size: 0.82rem;
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: opacity 0.2s;
-      align-self: center;
-    }
-    .paper-link:hover { opacity: 0.85; }
-
-    /* EXPERIENCE */
-    #experience { background: rgba(13, 17, 23, 0.6);  }
-    .timeline { display: flex; flex-direction: column; gap: 1.8rem; }
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 1.5rem;
-      align-items: start;
-    }
-    @media (max-width: 560px) {
-      .timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
-    }
-    .timeline-date { color: var(--muted); font-size: 0.82rem; padding-top: 3px; }
-    .timeline-content h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
-    .timeline-content .company { color: var(--accent); font-size: 0.85rem; margin-bottom: 0.4rem; }
-    .timeline-content p { color: var(--muted); font-size: 0.85rem; }
-
-    /* CONTACT */
-    #contact { text-align: center; background: rgba(13, 17, 23, 0.6);  }
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: var(--text);
-      font-size: 0.88rem;
-      transition: border-color 0.2s;
-    }
-    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* FOOTER */
-    footer {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 2rem;
-      color: var(--muted);
-      font-size: 0.8rem;
-      border-top: 1px solid var(--border);
-      background: rgba(13, 17, 23, 0.85);
-    }
-  </style>
+  <title>Steve Kan — AI Engineer & Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<canvas id="neural" style="position:fixed;inset:0;z-index:0;width:100%;height:100%;pointer-events:none;"></canvas>
-<div class="aurora">
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="logo">steveksh</a>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
+  <a href="#" class="nav-logo">steveksh</a>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
     <li><a href="#papers">Papers</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="blog/index.html">Blog</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
+<!-- MOBILE DRAWER -->
+<div class="nav-drawer" id="nav-drawer">
+  <a href="#research" onclick="closeDrawer()">Research</a>
+  <a href="#papers" onclick="closeDrawer()">Papers</a>
+  <a href="#projects" onclick="closeDrawer()">Projects</a>
+  <a href="#experience" onclick="closeDrawer()">Experience</a>
+  <a href="#education" onclick="closeDrawer()">Education</a>
+  <a href="#contact" onclick="closeDrawer()">Contact</a>
+  <a href="blog/index.html">Blog</a>
+</div>
+
 <!-- HERO -->
-<div class="hero-wrapper">
-<section class="hero">
+<div class="hero">
   <img
     src="https://github.com/steveksh.png"
     alt="Steve Kan"
-    class="avatar"
+    class="hero-avatar"
     onerror="this.style.display='none'"
   />
-  <h1>Hi, I'm <span>Steve Kan</span></h1>
-  <p class="tagline">AI Developer &nbsp;·&nbsp; MLE / Full-stack Data Scientist &nbsp;·&nbsp; Python Developer &nbsp;·&nbsp; AI & ML</p>
-  <div class="badges">
-    <span class="badge">Machine Learning</span>
-    <span class="badge">Reinforcement Learning</span>
-    <span class="badge">Recommendation Systems</span>
-    <span class="badge">Data Science</span>
-    <span class="badge">LLMs</span>
+  <h1>Steve Kan</h1>
+  <div class="hero-typed">
+    <span id="typed-text"></span><span class="typed-cursor"></span>
   </div>
-  <div class="cta">
-    <a href="https://github.com/steveksh" class="btn btn-primary" target="_blank">GitHub Profile</a>
-    <a href="#projects" class="btn btn-outline">View Projects</a>
+  <p class="hero-bio">
+    AI Engineer and researcher building intelligent systems — from federated learning and LLM agents
+    to recommendation engines and cloud-native ML pipelines.
+  </p>
+  <div class="hero-cta">
+    <a href="https://github.com/steveksh" class="btn btn-primary" target="_blank" rel="noopener">GitHub</a>
+    <a href="#research" class="btn btn-outline">View Research</a>
   </div>
-</section>
 </div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <h2 class="section-title">About Me</h2>
-    <div class="section-line"></div>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>
-          I'm an AI Engineer and Data Scientist passionate about building intelligent systems —
-          from recommendation engines and reinforcement learning agents to data-driven web applications.
-        </p>
-        <p>
-          I love working at the intersection of research and engineering, turning cutting-edge ML ideas
-          into production-ready systems. Currently focused on LLMs, scalable ML pipelines, and
-          cloud-native data infrastructure.
-        </p>
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container section-fade">
+    <div class="section-label">Research</div>
+    <h2 class="section-title">Research Interests</h2>
+    <p class="section-sub">Areas I study, build, and publish in.</p>
+    <div class="research-tags">
+      <span class="research-tag">Federated Learning</span>
+      <span class="research-tag">Recommendation Systems</span>
+      <span class="research-tag">Reinforcement Learning</span>
+      <span class="research-tag">LLM Agents</span>
+      <span class="research-tag">MLOps</span>
+      <span class="research-tag">Multimodal Learning</span>
+    </div>
+    <div class="currently-card">
+      <div class="currently-label">Currently</div>
+      <div class="currently-text">
+        Deepening reinforcement learning algorithms — policy gradients, model-based RL, and planning.
+        Next up: robotics and frontend development.
       </div>
-      <div class="skills-categories">
+    </div>
+  </div>
+</section>
 
-        <div class="skill-category">
-          <div class="skill-category-label">Languages</div>
-          <div class="skills-list">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">R</span>
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">C++ (entry)</span>
-          </div>
+<!-- PAPERS -->
+<section id="papers">
+  <div class="container section-fade">
+    <div class="section-label">Publications</div>
+    <h2 class="section-title">Papers</h2>
+    <p class="section-sub">Research I've contributed to.</p>
+    <div class="papers-list">
+
+      <div class="paper-card">
+        <div class="paper-info">
+          <h4>Vertical Federated Learning – An Application for Financial Institutions</h4>
+          <p class="paper-meta">Co-author · July 2024</p>
+          <p class="paper-meta">Privacy-preserving credit risk modeling across bank and non-bank institutions. Benchmarks FedAvg and FedReconstruct; assesses accuracy, privacy, and regulatory compliance trade-offs.</p>
+          <span class="paper-tag">Federated Learning</span>
         </div>
-
-        <div class="skill-category">
-          <div class="skill-category-label">Data Science & Engineering</div>
-          <div class="skills-list">
-            <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">Ray</span>
-            <span class="skill-tag">Sklearn</span>
-            <span class="skill-tag">Keras</span>
-            <span class="skill-tag">Polars</span>
-            <span class="skill-tag">KubeFlow</span>
-            <span class="skill-tag">Airflow</span>
-            <span class="skill-tag">PySpark</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <div class="skill-category-label">Frameworks</div>
-          <div class="skills-list">
-            <span class="skill-tag">Flask</span>
-            <span class="skill-tag">FastAPI</span>
-            <span class="skill-tag">Django</span>
-            <span class="skill-tag">LangChain</span>
-            <span class="skill-tag">LangGraph</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <div class="skill-category-label">Dev / MLOps</div>
-          <div class="skills-list">
-            <span class="skill-tag">MLFlow</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">CI/CD</span>
-            <span class="skill-tag">Linux</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <div class="skill-category-label">Cloud Platforms</div>
-          <div class="skills-list">
-            <span class="skill-tag">GCP · BigQuery</span>
-            <span class="skill-tag">Vertex AI</span>
-            <span class="skill-tag">Cloud Run</span>
-            <span class="skill-tag">Cloud SQL</span>
-            <span class="skill-tag">Azure · Databricks</span>
-            <span class="skill-tag">ML Studio</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <div class="skill-category-label">BI & Visualisation</div>
-          <div class="skills-list">
-            <span class="skill-tag">Power BI</span>
-            <span class="skill-tag">Looker</span>
-            <span class="skill-tag">Tableau</span>
-            <span class="skill-tag">R Markdown</span>
-            <span class="skill-tag">Shiny</span>
-          </div>
-        </div>
-
+        <a href="https://drive.google.com/file/d/1FO3equcsRwMISJocDL3CSqXnqCFo-Qbq/view?usp=sharing" class="paper-link" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Read
+        </a>
       </div>
+
+      <div class="paper-card">
+        <div class="paper-info">
+          <h4>Multimodal Recommendation Engine with Feature Encoders</h4>
+          <p class="paper-meta">City University of Hong Kong · 2024</p>
+          <p class="paper-meta">Leverages multimodal feature encoders to improve item representation and personalisation accuracy in recommendation systems.</p>
+          <span class="paper-tag">Recommendation Systems</span>
+        </div>
+        <a href="https://drive.google.com/file/d/1RyAwljzNSBOyA1m259oKwbifMyE_NTsX/view?usp=sharing" class="paper-link" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Read
+        </a>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-info">
+          <h4>Blackjack Reinforcement Learning</h4>
+          <p class="paper-meta">City University of Hong Kong · 2024</p>
+          <p class="paper-meta">Training an RL agent to play Blackjack optimally using classic reinforcement learning algorithms, policy evaluation, and Monte Carlo methods.</p>
+          <span class="paper-tag">Reinforcement Learning</span>
+        </div>
+        <a href="https://drive.google.com/file/d/1TsN0t1nbf3SLS9z8c3F4stncPLfe2ntS/view?usp=sharing" class="paper-link" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Read
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="container">
+  <div class="container section-fade">
+    <div class="section-label">Work</div>
     <h2 class="section-title">Projects</h2>
-    <div class="section-line"></div>
+    <p class="section-sub">Things I've built.</p>
     <div class="projects-grid">
 
       <div class="card featured">
         <div class="card-header">
-          <span class="card-icon">🎮</span>
-          <h3><a href="https://www.learn2play.app/" target="_blank">Learn2Play</a></h3>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3><a href="https://www.learn2play.app/" target="_blank" rel="noopener">Learn2Play</a></h3>
         </div>
-        <p>AI-powered app designed to help kids learn through play. Fully funded by Cyberport Creative Micro Fund (CCMF), Hong Kong.</p>
+        <p>AI-powered native iOS app (Dart) helping kids learn through play. FastAPI backend on GCP with Firebase auth and custom AI agents for OCR content recognition. Secured HKD 100K seed funding from Cyberport CMF.</p>
         <div class="card-footer">
-          <span class="lang"><span class="lang-dot" style="background:#3fb950"></span>Live App</span>
-          <a href="https://www.learn2play.app/" class="card-link" target="_blank">Visit →</a>
+          <span class="card-lang"><span class="lang-dot" style="background:#3fb950"></span>Live · Dart / Python</span>
+          <a href="https://www.learn2play.app/" class="card-link" target="_blank" rel="noopener">Visit →</a>
         </div>
       </div>
 
       <div class="card featured">
         <div class="card-header">
-          <span class="card-icon">🧬</span>
-          <h3><a href="https://github.com/steveksh/Federated-Learning" target="_blank">Federated Learning</a></h3>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <h3><a href="https://github.com/steveksh/Federated-Learning" target="_blank" rel="noopener">Federated Learning</a></h3>
         </div>
-        <p>Original research and implementation on Federated Learning — distributed ML training across decentralized devices without sharing raw data.</p>
+        <p>Original research and implementation of federated learning — distributed ML across decentralized devices without sharing raw data. Implements FedAvg and FedReconstruct with privacy analysis.</p>
         <div class="card-footer">
-          <span class="lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
-          <a href="https://github.com/steveksh/Federated-Learning" class="card-link" target="_blank">View →</a>
+          <span class="card-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+          <a href="https://github.com/steveksh/Federated-Learning" class="card-link" target="_blank" rel="noopener">View →</a>
         </div>
       </div>
 
       <div class="card featured">
         <div class="card-header">
-          <span class="card-icon">🃏</span>
-          <h3><a href="https://github.com/steveksh/Black-Jack-RL" target="_blank">Black-Jack-RL</a></h3>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3><a href="https://github.com/steveksh/Black-Jack-RL" target="_blank" rel="noopener">Blackjack RL</a></h3>
         </div>
-        <p>Reinforcement learning agent that learns to play Blackjack optimally using classic RL algorithms. Part of the SDSC 6007 coursework.</p>
+        <p>RL agent learning to play Blackjack optimally using policy evaluation, value iteration, and Monte Carlo methods. Includes a live training demo. SDSC 6007 coursework.</p>
         <div class="card-footer">
-          <span class="lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter Notebook</span>
-          <a href="https://github.com/steveksh/Black-Jack-RL" class="card-link" target="_blank">View →</a>
+          <span class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter / Python</span>
+          <a href="https://github.com/steveksh/Black-Jack-RL" class="card-link" target="_blank" rel="noopener">View →</a>
         </div>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <span class="card-icon">⭐</span>
-          <h3><a href="https://github.com/steveksh/recommendation" target="_blank">Recommendation System</a></h3>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3><a href="https://github.com/steveksh/recommendation" target="_blank" rel="noopener">Recommendation System</a></h3>
         </div>
-        <p>Collaborative filtering and content-based recommendation engine built from scratch in Python/Jupyter.</p>
+        <p>Collaborative filtering and content-based recommendation engine from scratch. Matrix factorization and item-based similarity models.</p>
         <div class="card-footer">
-          <span class="lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter Notebook</span>
-          <a href="https://github.com/steveksh/recommendation" class="card-link" target="_blank">View →</a>
+          <span class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter / Python</span>
+          <a href="https://github.com/steveksh/recommendation" class="card-link" target="_blank" rel="noopener">View →</a>
         </div>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <span class="card-icon">✈️</span>
-          <h3><a href="https://github.com/steveksh/Flight-Planner-Web-App" target="_blank">Flight Planner</a></h3>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 12.5 19.79 19.79 0 0 1 1.92 4 2 2 0 0 1 3.9 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3><a href="https://github.com/steveksh/Flight-Planner-Web-App" target="_blank" rel="noopener">Flight Planner</a></h3>
         </div>
-        <p>A web application for flight planning built with Python — handles routing, scheduling, and data lookup.</p>
+        <p>Web application for flight planning built with Python — handles routing, scheduling, and data lookup with a clean API layer.</p>
         <div class="card-footer">
-          <span class="lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
-          <a href="https://github.com/steveksh/Flight-Planner-Web-App" class="card-link" target="_blank">View →</a>
+          <span class="card-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+          <a href="https://github.com/steveksh/Flight-Planner-Web-App" class="card-link" target="_blank" rel="noopener">View →</a>
         </div>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <span class="card-icon">🏷️</span>
-          <h3><a href="https://github.com/steveksh/Product-Ratings-Classifier" target="_blank">Product Classifier</a></h3>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3><a href="https://github.com/steveksh/Product-Ratings-Classifier" target="_blank" rel="noopener">Product Classifier</a></h3>
         </div>
-        <p>NLP-based classifier that predicts product ratings from text reviews using machine learning techniques.</p>
+        <p>NLP classifier predicting product ratings from text reviews using TF-IDF, embeddings, and gradient boosting.</p>
         <div class="card-footer">
-          <span class="lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter Notebook</span>
-          <a href="https://github.com/steveksh/Product-Ratings-Classifier" class="card-link" target="_blank">View →</a>
+          <span class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter / Python</span>
+          <a href="https://github.com/steveksh/Product-Ratings-Classifier" class="card-link" target="_blank" rel="noopener">View →</a>
         </div>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <span class="card-icon">📊</span>
-          <h3><a href="https://github.com/steveksh/rdashboard.io" target="_blank">R Markdown Dashboard</a></h3>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h3><a href="https://github.com/steveksh/rdashboard.io" target="_blank" rel="noopener">R Markdown Dashboard</a></h3>
         </div>
-        <p>Interactive data visualization dashboard built with R Markdown — showcasing analytical storytelling with real datasets.</p>
+        <p>Interactive data visualization dashboard with R Markdown — analytical storytelling with real datasets and Shiny interactivity.</p>
         <div class="card-footer">
-          <span class="lang"><span class="lang-dot" style="background:#198CE7"></span>HTML / R</span>
-          <a href="https://github.com/steveksh/rdashboard.io" class="card-link" target="_blank">View →</a>
+          <span class="card-lang"><span class="lang-dot" style="background:#198CE7"></span>R / HTML</span>
+          <a href="https://github.com/steveksh/rdashboard.io" class="card-link" target="_blank" rel="noopener">View →</a>
         </div>
       </div>
 
     </div>
-  </div>
-</section>
-
-<!-- DEMOS -->
-<section id="demos">
-  <div class="container">
-    <h2 class="section-title">Demos</h2>
-    <div class="section-line"></div>
-
-    <div class="demo-card">
-      <video autoplay muted loop playsinline>
-        <source src="blackjack_rl.mp4" type="video/mp4">
-      </video>
-      <div class="demo-info">
-        <div>
-          <h4>Blackjack Reinforcement Learning</h4>
-          <p>RL agent learning to play Blackjack optimally — watch the policy evolve in real time.</p>
-        </div>
-        <span class="badge">Reinforcement Learning</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- PAPERS -->
-<section id="papers">
-  <div class="container">
-    <h2 class="section-title">Papers</h2>
-    <div class="section-line"></div>
-
-    <div class="paper-card">
-      <div class="paper-info">
-        <h4>Federated Learning</h4>
-        <p>Research on federated learning — distributed machine learning across decentralized devices while preserving data privacy.</p>
-        <span class="paper-tag">Machine Learning</span>
-      </div>
-      <a href="https://drive.google.com/file/d/1FO3equcsRwMISJocDL3CSqXnqCFo-Qbq/view?usp=sharing" class="paper-link" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        Read Paper
-      </a>
-    </div>
-
-    <div class="paper-card">
-      <div class="paper-info">
-        <h4>Multimodal Recommendation Engine with Feature Encoders</h4>
-        <p>A recommendation system leveraging multimodal feature encoders to improve item representation and personalisation accuracy.</p>
-        <span class="paper-tag">Recommendation Systems</span>
-      </div>
-      <a href="https://drive.google.com/file/d/1RyAwljzNSBOyA1m259oKwbifMyE_NTsX/view?usp=sharing" class="paper-link" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        Read Paper
-      </a>
-    </div>
-
-    <div class="paper-card">
-      <div class="paper-info">
-        <h4>Blackjack Reinforcement Learning</h4>
-        <p>Training an RL agent to play Blackjack optimally using classic reinforcement learning algorithms and policy evaluation.</p>
-        <span class="paper-tag">Reinforcement Learning</span>
-      </div>
-      <a href="https://drive.google.com/file/d/1TsN0t1nbf3SLS9z8c3F4stncPLfe2ntS/view?usp=sharing" class="paper-link" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        Read Paper
-      </a>
-    </div>
-
   </div>
 </section>
 
 <!-- EXPERIENCE -->
 <section id="experience">
-  <div class="container">
-    <h2 class="section-title">Experience & Education</h2>
-    <div class="section-line"></div>
+  <div class="container section-fade">
+    <div class="section-label">Experience</div>
+    <h2 class="section-title">Work History</h2>
+    <p class="section-sub">Where I've applied and built.</p>
     <div class="timeline">
 
       <div class="timeline-item">
         <div class="timeline-date">Feb 2026 – Present</div>
         <div class="timeline-content">
           <h4>AI Engineer</h4>
-          <div class="company">Capco</div>
-          <p>Applying AI and machine learning solutions in a financial services consulting context.</p>
+          <div class="company">Wipro Capco · Hong Kong</div>
+          <ul class="timeline-bullets">
+            <li>Built end-to-end AI Underwriting Agent for Life Insurance on Azure with CI/CD and Docker</li>
+            <li>Architected Agent-to-Agent (A2A) orchestration for tool centralization and AI Agent Builder platforms</li>
+            <li>Built Siamese neural networks for forgery detection and wet signature verification</li>
+            <li>Developed cross-product sales intelligence tool using multi-agent workflows (orchestrator, evaluator, aggregator, domain agents)</li>
+            <li>Led ML/LLMOps workflows including ETL pipelines and monitoring on Databricks and Power BI</li>
+          </ul>
         </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-date">Sep 2024 – Present</div>
         <div class="timeline-content">
-          <h4>Lead Developer</h4>
+          <h4>Co-owner & Lead Developer</h4>
           <div class="company">Learn2Play · Hong Kong</div>
-          <p>Building an AI-powered app to help kids learn. Fully funded by Cyberport Creative Micro Fund (CCMF). <a href="https://www.learn2play.app/" target="_blank" style="color:var(--accent);">learn2play.app →</a></p>
+          <ul class="timeline-bullets">
+            <li>Secured HKD 100K seed funding from Cyberport Creative Micro Fund</li>
+            <li>End-to-end development of native iOS app (Dart) and FastAPI backend deployed on GCP</li>
+            <li>Integrated custom AI agents for OCR-based content recognition with Firebase and MySQL auth</li>
+          </ul>
         </div>
       </div>
 
@@ -749,8 +288,14 @@
         <div class="timeline-date">Jun 2024 – Jan 2026</div>
         <div class="timeline-content">
           <h4>Regional Data Scientist</h4>
-          <div class="company">Richemont</div>
-          <p>AI & ML · MLOps — building and deploying machine learning models across the region.</p>
+          <div class="company">Richemont · Hong Kong</div>
+          <ul class="timeline-bullets">
+            <li>Delivered propensity-model pipelines (XGB/RF/LGBM) driving €3M+ incremental product sales (FY25–26)</li>
+            <li>Deployed Deep Matrix Factorization and GRU models with 68–82% Top-K accuracy for product recommendations</li>
+            <li>Productionized 14 boutique performance forecasting models at 60–85% monthly accuracy</li>
+            <li>Deployed product-recommendation AI agent powered by Chainlit, LangGraph, ChromaDB, MCPs, and Redis</li>
+            <li>Implemented Variational Autoencoders and Federated Learning to mask PIIs for model training</li>
+          </ul>
         </div>
       </div>
 
@@ -759,35 +304,85 @@
         <div class="timeline-content">
           <h4>Data Scientist</h4>
           <div class="company">Hotmob Limited · Hong Kong</div>
-          <p>NLP & ML — built language models and ML pipelines alongside API development.</p>
+          <ul class="timeline-bullets">
+            <li>Fine-tuned and deployed a Content Classification Model (BERT) at 66% accuracy using FastAPI and Docker</li>
+            <li>Built fraud detection models for insurance claims using Keras and Azure ML Studio (70% Recall)</li>
+            <li>Developed in-house RAG chatbots with graph generation using FAISS, PaLM, LangChain, and Looker SDK</li>
+            <li>Python API developer for in-house AI marketing content generator (Django, Gemini, RAG)</li>
+          </ul>
         </div>
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-date">Jan 2020 – Aug 2020</div>
+        <div class="timeline-date">Jan – Aug 2020</div>
         <div class="timeline-content">
           <h4>Research Analyst</h4>
           <div class="company">Ontario Ministry of Infrastructure · Toronto</div>
-          <p>Geocoding and location analysis — reporting, data analysis, and spatial data workflows.</p>
+          <ul class="timeline-bullets">
+            <li>Migrated legacy SQL scripts to R, optimizing data workflows with custom geocoding functions</li>
+            <li>Location analysis with spatial data, geocoding, and construction funding estimates using R and SQL</li>
+          </ul>
         </div>
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-date">Sep 2018 – Dec 2018</div>
+        <div class="timeline-date">Sep – Dec 2018</div>
         <div class="timeline-content">
-          <h4>Project Assistant / Learning Developer </h4>
-          <div class="company">Seneca College · Markham</div>
-          <p>Designed online courses and vector arts using Articulate 360, WordPress, and Adobe Creative Cloud.</p>
+          <h4>Project Assistant / Learning Developer</h4>
+          <div class="company">Seneca College · Markham, ON</div>
+          <ul class="timeline-bullets">
+            <li>Designed online courses and vector arts using Articulate 360, WordPress, and Adobe Creative Cloud</li>
+          </ul>
         </div>
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-date">May 2026</div>
+        <div class="timeline-date">Jan – Apr 2018</div>
         <div class="timeline-content">
-          <h4>Professional Machine Learning Engineer (PMLE)</h4>
-          <div class="company">Google Cloud · Scheduled</div>
-          <p>Currently preparing for the GCP Professional Machine Learning Engineer certification exam.</p>
+          <h4>Event Management Trainee</h4>
+          <div class="company">Canadian Chamber of Commerce · Hong Kong</div>
+          <ul class="timeline-bullets">
+            <li>Monitored membership database and produced P&amp;L reports using Excel and NeonCRM</li>
+            <li>Designed infographics, booklets, and marketing campaigns using Adobe CC and Mailchimp</li>
+          </ul>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container section-fade">
+    <div class="section-label">Education</div>
+    <h2 class="section-title">Academic Background</h2>
+    <p class="section-sub">Degrees and certifications.</p>
+    <div class="edu-list">
+
+      <div class="edu-card">
+        <h4>Master of Data Science (MSDS)</h4>
+        <div class="edu-school">City University of Hong Kong · Hong Kong</div>
+        <div class="edu-meta">
+          2023 – 2025 &nbsp;·&nbsp; 4.0 GPA &nbsp;·&nbsp; Distinction<br>
+          Research: Multimodal Recommendation Systems &amp; Federated Learning<br>
+          Courses: NLP, Stochastic Optimizations, Dynamic Programming &amp; Reinforcement Learning
+        </div>
+        <span class="edu-badge">Distinction</span>
+      </div>
+
+      <div class="edu-card">
+        <h4>Bachelor of Arts — Econometrics &amp; Business (Co-op)</h4>
+        <div class="edu-school">University of Waterloo · Kitchener, ON</div>
+        <div class="edu-meta">2016 – 2021 &nbsp;·&nbsp; 3.7 GPA &nbsp;·&nbsp; Distinction</div>
+        <span class="edu-badge">Distinction</span>
+      </div>
+
+      <div class="edu-card">
+        <h4>Professional Machine Learning Engineer (PMLE)</h4>
+        <div class="edu-school">Google Cloud · Certification</div>
+        <div class="edu-meta">Scheduled: May 2026</div>
+        <span class="edu-badge upcoming">Upcoming</span>
       </div>
 
     </div>
@@ -796,19 +391,21 @@
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="container">
+  <div class="container section-fade">
+    <div class="section-label">Contact</div>
     <h2 class="section-title">Get In Touch</h2>
-    <div class="section-line" style="margin: 0 auto 1rem;"></div>
-    <p style="color:var(--muted); max-width:480px; margin:0 auto;">
-      Open to interesting AI/ML projects, collaborations, and opportunities. Feel free to reach out!
-    </p>
+    <p class="section-sub">Open to AI/ML projects, research collaborations, and opportunities.</p>
     <div class="contact-links">
-      <a href="https://github.com/steveksh" class="contact-link" target="_blank">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      <a href="https://github.com/steveksh" class="contact-link" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         GitHub
       </a>
+      <a href="https://linkedin.com/in/steve-kan-789907157" class="contact-link" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
       <a href="mailto:kanstevie4@gmail.com" class="contact-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Email
       </a>
     </div>
@@ -819,256 +416,6 @@
   <p>Built with GitHub Pages &nbsp;·&nbsp; © 2026 Steve Kan</p>
 </footer>
 
-<script>
-  const canvas = document.getElementById('neural');
-  const ctx = canvas.getContext('2d');
-  let nodes = [];
-  const COUNT = 55;
-  const MAX_DIST = 160;
-  const MOUSE = { x: null, y: null };
-
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-
-  function init() {
-    nodes = [];
-    for (let i = 0; i < COUNT; i++) {
-      nodes.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        r: Math.random() * 2 + 1.5
-      });
-    }
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // draw connections
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const dx = nodes[i].x - nodes[j].x;
-        const dy = nodes[i].y - nodes[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < MAX_DIST) {
-          const alpha = 1 - dist / MAX_DIST;
-          ctx.beginPath();
-          ctx.moveTo(nodes[i].x, nodes[i].y);
-          ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.strokeStyle = `rgba(88, 166, 255, ${alpha * 0.5})`;
-          ctx.lineWidth = alpha * 1.2;
-          ctx.stroke();
-        }
-      }
-      // mouse interaction
-      if (MOUSE.x !== null) {
-        const dx = nodes[i].x - MOUSE.x;
-        const dy = nodes[i].y - MOUSE.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 180) {
-          const alpha = 1 - dist / 180;
-          ctx.beginPath();
-          ctx.moveTo(nodes[i].x, nodes[i].y);
-          ctx.lineTo(MOUSE.x, MOUSE.y);
-          ctx.strokeStyle = `rgba(124, 58, 237, ${alpha * 0.6})`;
-          ctx.lineWidth = alpha * 1.5;
-          ctx.stroke();
-        }
-      }
-    }
-
-    // draw nodes
-    for (const n of nodes) {
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(88, 166, 255, 0.85)';
-      ctx.fill();
-    }
-  }
-
-  function update() {
-    for (const n of nodes) {
-      n.x += n.vx;
-      n.y += n.vy;
-      if (n.x < 0 || n.x > canvas.width)  n.vx *= -1;
-      if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
-    }
-  }
-
-  function loop() {
-    update();
-    draw();
-    requestAnimationFrame(loop);
-  }
-
-  window.addEventListener('mousemove', e => {
-    MOUSE.x = e.clientX;
-    MOUSE.y = e.clientY;
-  });
-  window.addEventListener('mouseleave', () => {
-    MOUSE.x = null; MOUSE.y = null;
-  });
-
-  window.addEventListener('resize', () => { resize(); init(); });
-  resize();
-  init();
-  loop();
-</script>
-
-<!-- GOJO EASTER EGG -->
-<button id="gojo-btn" title="Don't even try" onclick="triggerDomain()">∞</button>
-
-<div id="domain" onclick="closeDomain()">
-  <video id="gojo-video" loop playsinline>
-    <source src="gojo_domain.mp4" type="video/mp4">
-  </video>
-  <div id="domain-overlay"></div>
-  <div id="domain-content">
-    <div id="domain-top">DOMAIN EXPANSION</div>
-    <div id="domain-title">Unlimited Void</div>
-    <div id="domain-quote">"Throughout Heaven and Earth,<br>I alone am the Honoured One."</div>
-    <div id="domain-sub">— Gojo Satoru</div>
-    <div id="domain-close">click anywhere to escape... if you can</div>
-  </div>
-</div>
-
-<style>
-  #gojo-btn {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 999;
-    width: 52px; height: 52px;
-    border-radius: 50%;
-    border: 2px solid #7c3aed;
-    background: rgba(13,17,23,0.85);
-    color: #a78bfa;
-    font-size: 1.4rem;
-    cursor: pointer;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 0 20px #7c3aed66, 0 0 40px #7c3aed33;
-    transition: transform 0.2s, box-shadow 0.2s;
-    animation: gojo-pulse 3s ease-in-out infinite;
-  }
-  #gojo-btn:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 30px #7c3aedaa, 0 0 60px #7c3aed55;
-  }
-  @keyframes gojo-pulse {
-    0%, 100% { box-shadow: 0 0 20px #7c3aed66, 0 0 40px #7c3aed33; }
-    50%       { box-shadow: 0 0 35px #a78bfaaa, 0 0 70px #7c3aed66; }
-  }
-
-  #domain {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    cursor: pointer;
-    overflow: hidden;
-  }
-  #domain.active { display: flex; align-items: center; justify-content: center; }
-
-  #gojo-video {
-    position: absolute;
-    inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-  }
-  #domain-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(2,0,15,0.45), rgba(2,0,15,0.65));
-    z-index: 1;
-  }
-
-  #domain-content {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-    animation: domain-appear 1s ease forwards;
-    opacity: 0;
-  }
-  @keyframes domain-appear {
-    0%   { opacity: 0; transform: scale(0.85); }
-    100% { opacity: 1; transform: scale(1); }
-  }
-
-  #domain-top {
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.5em;
-    color: #a78bfa;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    animation: flicker 4s ease-in-out infinite;
-  }
-  @keyframes flicker {
-    0%,100% { opacity: 1; } 92% { opacity: 1; } 93% { opacity: 0.3; } 94% { opacity: 1; } 96% { opacity: 0.5; } 97% { opacity: 1; }
-  }
-
-  #domain-title {
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight: 900;
-    letter-spacing: -1px;
-    background: linear-gradient(135deg, #e0d7ff, #a78bfa, #7c3aed, #38bdf8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 2rem;
-    animation: shimmer 3s linear infinite;
-    background-size: 200%;
-  }
-  @keyframes shimmer {
-    0%   { background-position: 0% 50%; }
-    100% { background-position: 200% 50%; }
-  }
-
-  #domain-quote {
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
-    color: #e2e8f0;
-    line-height: 1.8;
-    font-style: italic;
-    margin-bottom: 0.8rem;
-    text-shadow: 0 0 30px #7c3aed;
-  }
-
-  #domain-sub {
-    color: #a78bfa;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 2.5rem;
-  }
-
-  #domain-close {
-    color: #64748b;
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-  }
-</style>
-
-<script>
-  function triggerDomain() {
-    const domain = document.getElementById('domain');
-    const video = document.getElementById('gojo-video');
-    domain.classList.add('active');
-    video.currentTime = 0;
-    video.volume = 1;
-    video.play();
-  }
-
-  function closeDomain() {
-    const domain = document.getElementById('domain');
-    const video = document.getElementById('gojo-video');
-    domain.classList.remove('active');
-    video.pause();
-    video.currentTime = 0;
-  }
-
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
