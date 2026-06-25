@@ -9,7 +9,7 @@
   --text: #e6edf3;
   --muted: #8b949e;
   --radius: 10px;
-  --green: var(--green);
+  --green: #3fb950;
 }
 
 html { scroll-behavior: smooth; }
