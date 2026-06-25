@@ -60,18 +60,18 @@
 
     <!-- TAB BAR -->
     <div class="tab-bar" role="tablist">
-      <button class="tab-btn active" data-tab="research" role="tab" aria-selected="true">Research</button>
-      <button class="tab-btn" data-tab="papers" role="tab" aria-selected="false">Papers</button>
-      <button class="tab-btn" data-tab="projects" role="tab" aria-selected="false">Projects</button>
-      <button class="tab-btn" data-tab="experience" role="tab" aria-selected="false">Experience</button>
-      <button class="tab-btn" data-tab="education" role="tab" aria-selected="false">Education</button>
-      <button class="tab-btn" data-tab="contact" role="tab" aria-selected="false">Contact</button>
+      <button class="tab-btn active" data-tab="research" role="tab" aria-selected="true" id="btn-research" aria-controls="tab-research">Research</button>
+      <button class="tab-btn" data-tab="papers" role="tab" aria-selected="false" id="btn-papers" aria-controls="tab-papers">Papers</button>
+      <button class="tab-btn" data-tab="projects" role="tab" aria-selected="false" id="btn-projects" aria-controls="tab-projects">Projects</button>
+      <button class="tab-btn" data-tab="experience" role="tab" aria-selected="false" id="btn-experience" aria-controls="tab-experience">Experience</button>
+      <button class="tab-btn" data-tab="education" role="tab" aria-selected="false" id="btn-education" aria-controls="tab-education">Education</button>
+      <button class="tab-btn" data-tab="contact" role="tab" aria-selected="false" id="btn-contact" aria-controls="tab-contact">Contact</button>
     </div>
 
     <div class="tab-content-wrapper">
 
       <!-- RESEARCH -->
-      <div class="tab-pane active" id="tab-research" role="tabpanel">
+      <div class="tab-pane active" id="tab-research" role="tabpanel" aria-labelledby="btn-research">
         <div class="pane-label">Research</div>
         <h2 class="pane-title">Research Interests</h2>
         <p class="pane-sub">Areas I study, build, and publish in.</p>
@@ -93,7 +93,7 @@
       </div>
 
       <!-- PAPERS -->
-      <div class="tab-pane" id="tab-papers" role="tabpanel">
+      <div class="tab-pane" id="tab-papers" role="tabpanel" aria-labelledby="btn-papers">
         <div class="pane-label">Publications</div>
         <h2 class="pane-title">Papers</h2>
         <p class="pane-sub">Research I've contributed to.</p>
@@ -142,7 +142,7 @@
       </div>
 
       <!-- PROJECTS -->
-      <div class="tab-pane" id="tab-projects" role="tabpanel">
+      <div class="tab-pane" id="tab-projects" role="tabpanel" aria-labelledby="btn-projects">
         <div class="pane-label">Work</div>
         <h2 class="pane-title">Projects</h2>
         <p class="pane-sub">Things I've built.</p>
@@ -236,7 +236,7 @@
       </div>
 
       <!-- EXPERIENCE -->
-      <div class="tab-pane" id="tab-experience" role="tabpanel">
+      <div class="tab-pane" id="tab-experience" role="tabpanel" aria-labelledby="btn-experience">
         <div class="pane-label">Experience</div>
         <h2 class="pane-title">Work History</h2>
         <p class="pane-sub">Where I've applied and built.</p>
@@ -338,7 +338,7 @@
       </div>
 
       <!-- EDUCATION -->
-      <div class="tab-pane" id="tab-education" role="tabpanel">
+      <div class="tab-pane" id="tab-education" role="tabpanel" aria-labelledby="btn-education">
         <div class="pane-label">Education</div>
         <h2 class="pane-title">Academic Background</h2>
         <p class="pane-sub">Degrees and certifications.</p>
@@ -373,7 +373,7 @@
       </div>
 
       <!-- CONTACT -->
-      <div class="tab-pane" id="tab-contact" role="tabpanel">
+      <div class="tab-pane" id="tab-contact" role="tabpanel" aria-labelledby="btn-contact">
         <div class="pane-label">Contact</div>
         <h2 class="pane-title">Get In Touch</h2>
         <p class="pane-sub">Open to AI/ML projects, research collaborations, and opportunities.</p>
