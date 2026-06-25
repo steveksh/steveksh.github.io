@@ -11,410 +11,392 @@
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">steveksh</a>
-  <ul class="nav-links">
-    <li><a href="#research">Research</a></li>
-    <li><a href="#papers">Papers</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="blog/index.html">Blog</a></li>
-  </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-</nav>
+<div class="site-wrapper">
 
-<!-- MOBILE DRAWER -->
-<div class="nav-drawer" id="nav-drawer">
-  <a href="#research">Research</a>
-  <a href="#papers">Papers</a>
-  <a href="#projects">Projects</a>
-  <a href="#experience">Experience</a>
-  <a href="#education">Education</a>
-  <a href="#contact">Contact</a>
-  <a href="blog/index.html">Blog</a>
-</div>
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+    <img src="https://github.com/steveksh.png" alt="Steve Kan" class="sidebar-avatar" onerror="this.style.display='none'">
 
-<!-- HERO -->
-<div class="hero">
-  <img
-    src="https://github.com/steveksh.png"
-    alt="Steve Kan"
-    class="hero-avatar"
-    onerror="this.style.display='none'"
-  />
-  <h1>Steve Kan</h1>
-  <div class="hero-typed">
-    <span id="typed-text"></span><span class="typed-cursor"></span>
-  </div>
-  <p class="hero-bio">
-    AI Engineer and researcher building intelligent systems — from federated learning and LLM agents
-    to recommendation engines and cloud-native ML pipelines.
-  </p>
-  <div class="hero-cta">
-    <a href="https://github.com/steveksh" class="btn btn-primary" target="_blank" rel="noopener">GitHub</a>
-    <a href="#research" class="btn btn-outline">View Research</a>
-  </div>
-</div>
-
-<!-- RESEARCH -->
-<section id="research">
-  <div class="container section-fade">
-    <div class="section-label">Research</div>
-    <h2 class="section-title">Research Interests</h2>
-    <p class="section-sub">Areas I study, build, and publish in.</p>
-    <div class="research-tags">
-      <span class="research-tag">Federated Learning</span>
-      <span class="research-tag">Recommendation Systems</span>
-      <span class="research-tag">Reinforcement Learning</span>
-      <span class="research-tag">LLM Agents</span>
-      <span class="research-tag">MLOps</span>
-      <span class="research-tag">Multimodal Learning</span>
-    </div>
-    <div class="currently-card">
-      <div class="currently-label">Currently</div>
-      <div class="currently-text">
-        Deepening reinforcement learning algorithms — policy gradients, model-based RL, and planning.
-        Next up: robotics and frontend development.
+    <div>
+      <div class="sidebar-name">Steve Kan</div>
+      <div class="sidebar-typed">
+        <span id="typed-text"></span><span class="typed-cursor"></span>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- PAPERS -->
-<section id="papers">
-  <div class="container section-fade">
-    <div class="section-label">Publications</div>
-    <h2 class="section-title">Papers</h2>
-    <p class="section-sub">Research I've contributed to.</p>
-    <div class="papers-list">
+    <div class="sidebar-divider"></div>
 
-      <div class="paper-card">
-        <div class="paper-info">
-          <h4>Vertical Federated Learning – An Application for Financial Institutions</h4>
-          <p class="paper-meta">Co-author · July 2024</p>
-          <p class="paper-meta">Privacy-preserving credit risk modeling across bank and non-bank institutions. Benchmarks FedAvg and FedReconstruct; assesses accuracy, privacy, and regulatory compliance trade-offs.</p>
-          <span class="paper-tag">Federated Learning</span>
-        </div>
-        <a href="https://drive.google.com/file/d/1FO3equcsRwMISJocDL3CSqXnqCFo-Qbq/view?usp=sharing" class="paper-link" target="_blank" rel="noopener">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Read
-        </a>
-      </div>
-
-      <div class="paper-card">
-        <div class="paper-info">
-          <h4>Multimodal Recommendation Engine with Feature Encoders</h4>
-          <p class="paper-meta">City University of Hong Kong · 2024</p>
-          <p class="paper-meta">Leverages multimodal feature encoders to improve item representation and personalisation accuracy in recommendation systems.</p>
-          <span class="paper-tag">Recommendation Systems</span>
-        </div>
-        <a href="https://drive.google.com/file/d/1RyAwljzNSBOyA1m259oKwbifMyE_NTsX/view?usp=sharing" class="paper-link" target="_blank" rel="noopener">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Read
-        </a>
-      </div>
-
-      <div class="paper-card">
-        <div class="paper-info">
-          <h4>Blackjack Reinforcement Learning</h4>
-          <p class="paper-meta">City University of Hong Kong · 2024</p>
-          <p class="paper-meta">Training an RL agent to play Blackjack optimally using classic reinforcement learning algorithms, policy evaluation, and Monte Carlo methods.</p>
-          <span class="paper-tag">Reinforcement Learning</span>
-        </div>
-        <a href="https://drive.google.com/file/d/1TsN0t1nbf3SLS9z8c3F4stncPLfe2ntS/view?usp=sharing" class="paper-link" target="_blank" rel="noopener">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Read
-        </a>
-      </div>
-
+    <div class="sidebar-tags">
+      <span class="sidebar-tag">Federated Learning</span>
+      <span class="sidebar-tag">Recommendation Systems</span>
+      <span class="sidebar-tag">Reinforcement Learning</span>
+      <span class="sidebar-tag">LLM Agents</span>
+      <span class="sidebar-tag">MLOps</span>
+      <span class="sidebar-tag">Multimodal Learning</span>
     </div>
-  </div>
-</section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="container section-fade">
-    <div class="section-label">Work</div>
-    <h2 class="section-title">Projects</h2>
-    <p class="section-sub">Things I've built.</p>
-    <div class="projects-grid">
-
-      <div class="card featured">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3><a href="https://www.learn2play.app/" target="_blank" rel="noopener">Learn2Play</a></h3>
-        </div>
-        <p>AI-powered native iOS app (Dart) helping kids learn through play. FastAPI backend on GCP with Firebase auth and custom AI agents for OCR content recognition. Secured HKD 100K seed funding from Cyberport CMF.</p>
-        <div class="card-footer">
-          <span class="card-lang"><span class="lang-dot" style="background:#3fb950"></span>Live · Dart / Python</span>
-          <a href="https://www.learn2play.app/" class="card-link" target="_blank" rel="noopener">Visit →</a>
-        </div>
-      </div>
-
-      <div class="card featured">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-          </div>
-          <h3><a href="https://github.com/steveksh/Federated-Learning" target="_blank" rel="noopener">Federated Learning</a></h3>
-        </div>
-        <p>Original research and implementation of federated learning — distributed ML across decentralized devices without sharing raw data. Implements FedAvg and FedReconstruct with privacy analysis.</p>
-        <div class="card-footer">
-          <span class="card-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
-          <a href="https://github.com/steveksh/Federated-Learning" class="card-link" target="_blank" rel="noopener">View →</a>
-        </div>
-      </div>
-
-      <div class="card featured">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <h3><a href="https://github.com/steveksh/Black-Jack-RL" target="_blank" rel="noopener">Blackjack RL</a></h3>
-        </div>
-        <p>RL agent learning to play Blackjack optimally using policy evaluation, value iteration, and Monte Carlo methods. Includes a live training demo. SDSC 6007 coursework.</p>
-        <div class="card-footer">
-          <span class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter / Python</span>
-          <a href="https://github.com/steveksh/Black-Jack-RL" class="card-link" target="_blank" rel="noopener">View →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <h3><a href="https://github.com/steveksh/recommendation" target="_blank" rel="noopener">Recommendation System</a></h3>
-        </div>
-        <p>Collaborative filtering and content-based recommendation engine from scratch. Matrix factorization and item-based similarity models.</p>
-        <div class="card-footer">
-          <span class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter / Python</span>
-          <a href="https://github.com/steveksh/recommendation" class="card-link" target="_blank" rel="noopener">View →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 12.5 19.79 19.79 0 0 1 1.92 4 2 2 0 0 1 3.9 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <h3><a href="https://github.com/steveksh/Flight-Planner-Web-App" target="_blank" rel="noopener">Flight Planner</a></h3>
-        </div>
-        <p>Web application for flight planning built with Python — handles routing, scheduling, and data lookup with a clean API layer.</p>
-        <div class="card-footer">
-          <span class="card-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
-          <a href="https://github.com/steveksh/Flight-Planner-Web-App" class="card-link" target="_blank" rel="noopener">View →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <h3><a href="https://github.com/steveksh/Product-Ratings-Classifier" target="_blank" rel="noopener">Product Classifier</a></h3>
-        </div>
-        <p>NLP classifier predicting product ratings from text reviews using TF-IDF, embeddings, and gradient boosting.</p>
-        <div class="card-footer">
-          <span class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter / Python</span>
-          <a href="https://github.com/steveksh/Product-Ratings-Classifier" class="card-link" target="_blank" rel="noopener">View →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          </div>
-          <h3><a href="https://github.com/steveksh/rdashboard.io" target="_blank" rel="noopener">R Markdown Dashboard</a></h3>
-        </div>
-        <p>Interactive data visualization dashboard with R Markdown — analytical storytelling with real datasets and Shiny interactivity.</p>
-        <div class="card-footer">
-          <span class="card-lang"><span class="lang-dot" style="background:#198CE7"></span>R / HTML</span>
-          <a href="https://github.com/steveksh/rdashboard.io" class="card-link" target="_blank" rel="noopener">View →</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="container section-fade">
-    <div class="section-label">Experience</div>
-    <h2 class="section-title">Work History</h2>
-    <p class="section-sub">Where I've applied and built.</p>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-date">Feb 2026 – Present</div>
-        <div class="timeline-content">
-          <h4>AI Engineer</h4>
-          <div class="company">Wipro Capco · Hong Kong</div>
-          <ul class="timeline-bullets">
-            <li>Built end-to-end AI Underwriting Agent for Life Insurance on Azure with CI/CD and Docker</li>
-            <li>Architected Agent-to-Agent (A2A) orchestration for tool centralization and AI Agent Builder platforms</li>
-            <li>Built Siamese neural networks for forgery detection and wet signature verification</li>
-            <li>Developed cross-product sales intelligence tool using multi-agent workflows (orchestrator, evaluator, aggregator, domain agents)</li>
-            <li>Led ML/LLMOps workflows including ETL pipelines and monitoring on Databricks and Power BI</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-date">Sep 2024 – Present</div>
-        <div class="timeline-content">
-          <h4>Co-owner & Lead Developer</h4>
-          <div class="company">Learn2Play · Hong Kong</div>
-          <ul class="timeline-bullets">
-            <li>Secured HKD 100K seed funding from Cyberport Creative Micro Fund</li>
-            <li>End-to-end development of native iOS app (Dart) and FastAPI backend deployed on GCP</li>
-            <li>Integrated custom AI agents for OCR-based content recognition with Firebase and MySQL auth</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-date">Jun 2024 – Jan 2026</div>
-        <div class="timeline-content">
-          <h4>Regional Data Scientist</h4>
-          <div class="company">Richemont · Hong Kong</div>
-          <ul class="timeline-bullets">
-            <li>Delivered propensity-model pipelines (XGB/RF/LGBM) driving €3M+ incremental product sales (FY25–26)</li>
-            <li>Deployed Deep Matrix Factorization and GRU models with 68–82% Top-K accuracy for product recommendations</li>
-            <li>Productionized 14 boutique performance forecasting models at 60–85% monthly accuracy</li>
-            <li>Deployed product-recommendation AI agent powered by Chainlit, LangGraph, ChromaDB, MCPs, and Redis</li>
-            <li>Implemented Variational Autoencoders and Federated Learning to mask PIIs for model training</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-date">Jul 2022 – Jun 2024</div>
-        <div class="timeline-content">
-          <h4>Data Scientist</h4>
-          <div class="company">Hotmob Limited · Hong Kong</div>
-          <ul class="timeline-bullets">
-            <li>Fine-tuned and deployed a Content Classification Model (BERT) at 66% accuracy using FastAPI and Docker</li>
-            <li>Built fraud detection models for insurance claims using Keras and Azure ML Studio (70% Recall)</li>
-            <li>Developed in-house RAG chatbots with graph generation using FAISS, PaLM, LangChain, and Looker SDK</li>
-            <li>Python API developer for in-house AI marketing content generator (Django, Gemini, RAG)</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-date">Jan – Aug 2020</div>
-        <div class="timeline-content">
-          <h4>Research Analyst</h4>
-          <div class="company">Ontario Ministry of Infrastructure · Toronto</div>
-          <ul class="timeline-bullets">
-            <li>Migrated legacy SQL scripts to R, optimizing data workflows with custom geocoding functions</li>
-            <li>Location analysis with spatial data, geocoding, and construction funding estimates using R and SQL</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-date">Sep – Dec 2018</div>
-        <div class="timeline-content">
-          <h4>Project Assistant / Learning Developer</h4>
-          <div class="company">Seneca College · Markham, ON</div>
-          <ul class="timeline-bullets">
-            <li>Designed online courses and vector arts using Articulate 360, WordPress, and Adobe Creative Cloud</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-date">Jan – Apr 2018</div>
-        <div class="timeline-content">
-          <h4>Event Management Trainee</h4>
-          <div class="company">Canadian Chamber of Commerce · Hong Kong</div>
-          <ul class="timeline-bullets">
-            <li>Monitored membership database and produced P&amp;L reports using Excel and NeonCRM</li>
-            <li>Designed infographics, booklets, and marketing campaigns using Adobe CC and Mailchimp</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="container section-fade">
-    <div class="section-label">Education</div>
-    <h2 class="section-title">Academic Background</h2>
-    <p class="section-sub">Degrees and certifications.</p>
-    <div class="edu-list">
-
-      <div class="edu-card">
-        <h4>Master of Data Science (MSDS)</h4>
-        <div class="edu-school">City University of Hong Kong · Hong Kong</div>
-        <div class="edu-meta">
-          2023 – 2025 &nbsp;·&nbsp; 4.0 GPA &nbsp;·&nbsp; Distinction<br>
-          Research: Multimodal Recommendation Systems &amp; Federated Learning<br>
-          Courses: NLP, Stochastic Optimizations, Dynamic Programming &amp; Reinforcement Learning
-        </div>
-        <span class="edu-badge">Distinction</span>
-      </div>
-
-      <div class="edu-card">
-        <h4>Bachelor of Arts — Econometrics &amp; Business (Co-op)</h4>
-        <div class="edu-school">University of Waterloo · Kitchener, ON</div>
-        <div class="edu-meta">2016 – 2021 &nbsp;·&nbsp; 3.7 GPA &nbsp;·&nbsp; Distinction</div>
-        <span class="edu-badge">Distinction</span>
-      </div>
-
-      <div class="edu-card">
-        <h4>Professional Machine Learning Engineer (PMLE)</h4>
-        <div class="edu-school">Google Cloud · Certification</div>
-        <div class="edu-meta">Certified: May 2026</div>
-        <span class="edu-badge">Certified</span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container section-fade">
-    <div class="section-label">Contact</div>
-    <h2 class="section-title">Get In Touch</h2>
-    <p class="section-sub">Open to AI/ML projects, research collaborations, and opportunities.</p>
-    <div class="contact-links">
-      <a href="https://github.com/steveksh" class="contact-link" target="_blank" rel="noopener">
+    <div class="sidebar-links">
+      <a href="https://github.com/steveksh" class="sidebar-link" target="_blank" rel="noopener">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        GitHub
+        <span>GitHub</span>
       </a>
-      <a href="https://linkedin.com/in/steve-kan-789907157" class="contact-link" target="_blank" rel="noopener">
+      <a href="https://linkedin.com/in/steve-kan-789907157" class="sidebar-link" target="_blank" rel="noopener">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
+        <span>LinkedIn</span>
       </a>
-      <a href="mailto:kanstevie4@gmail.com" class="contact-link">
+      <a href="mailto:kanstevie4@gmail.com" class="sidebar-link">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Email
+        <span>Email</span>
+      </a>
+      <a href="blog/index.html" class="sidebar-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span>Blog</span>
       </a>
     </div>
-  </div>
-</section>
+  </aside>
 
-<footer>
-  <p>Built with GitHub Pages &nbsp;·&nbsp; © 2026 Steve Kan</p>
-</footer>
+  <!-- ── CONTENT PANEL ── -->
+  <main class="content-panel">
+
+    <!-- TAB BAR -->
+    <div class="tab-bar" role="tablist">
+      <button class="tab-btn active" data-tab="research" role="tab" aria-selected="true">Research</button>
+      <button class="tab-btn" data-tab="papers" role="tab" aria-selected="false">Papers</button>
+      <button class="tab-btn" data-tab="projects" role="tab" aria-selected="false">Projects</button>
+      <button class="tab-btn" data-tab="experience" role="tab" aria-selected="false">Experience</button>
+      <button class="tab-btn" data-tab="education" role="tab" aria-selected="false">Education</button>
+      <button class="tab-btn" data-tab="contact" role="tab" aria-selected="false">Contact</button>
+    </div>
+
+    <div class="tab-content-wrapper">
+
+      <!-- RESEARCH -->
+      <div class="tab-pane active" id="tab-research" role="tabpanel">
+        <div class="pane-label">Research</div>
+        <h2 class="pane-title">Research Interests</h2>
+        <p class="pane-sub">Areas I study, build, and publish in.</p>
+        <div class="research-tags">
+          <span class="research-tag">Federated Learning</span>
+          <span class="research-tag">Recommendation Systems</span>
+          <span class="research-tag">Reinforcement Learning</span>
+          <span class="research-tag">LLM Agents</span>
+          <span class="research-tag">MLOps</span>
+          <span class="research-tag">Multimodal Learning</span>
+        </div>
+        <div class="currently-card">
+          <div class="currently-label">Currently</div>
+          <div class="currently-text">
+            Deepening reinforcement learning algorithms — policy gradients, model-based RL, and planning.
+            Next up: robotics and frontend development.
+          </div>
+        </div>
+      </div>
+
+      <!-- PAPERS -->
+      <div class="tab-pane" id="tab-papers" role="tabpanel">
+        <div class="pane-label">Publications</div>
+        <h2 class="pane-title">Papers</h2>
+        <p class="pane-sub">Research I've contributed to.</p>
+        <div class="papers-list">
+
+          <div class="paper-card">
+            <div class="paper-info">
+              <h4>Vertical Federated Learning – An Application for Financial Institutions</h4>
+              <p class="paper-meta">Co-author · July 2024</p>
+              <p class="paper-meta">Privacy-preserving credit risk modeling across bank and non-bank institutions. Benchmarks FedAvg and FedReconstruct; assesses accuracy, privacy, and regulatory compliance trade-offs.</p>
+              <span class="paper-tag">Federated Learning</span>
+            </div>
+            <a href="https://drive.google.com/file/d/1FO3equcsRwMISJocDL3CSqXnqCFo-Qbq/view?usp=sharing" class="paper-link" target="_blank" rel="noopener">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read
+            </a>
+          </div>
+
+          <div class="paper-card">
+            <div class="paper-info">
+              <h4>Multimodal Recommendation Engine with Feature Encoders</h4>
+              <p class="paper-meta">City University of Hong Kong · 2024</p>
+              <p class="paper-meta">Leverages multimodal feature encoders to improve item representation and personalisation accuracy in recommendation systems.</p>
+              <span class="paper-tag">Recommendation Systems</span>
+            </div>
+            <a href="https://drive.google.com/file/d/1RyAwljzNSBOyA1m259oKwbifMyE_NTsX/view?usp=sharing" class="paper-link" target="_blank" rel="noopener">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read
+            </a>
+          </div>
+
+          <div class="paper-card">
+            <div class="paper-info">
+              <h4>Blackjack Reinforcement Learning</h4>
+              <p class="paper-meta">City University of Hong Kong · 2024</p>
+              <p class="paper-meta">Training an RL agent to play Blackjack optimally using classic reinforcement learning algorithms, policy evaluation, and Monte Carlo methods.</p>
+              <span class="paper-tag">Reinforcement Learning</span>
+            </div>
+            <a href="https://drive.google.com/file/d/1TsN0t1nbf3SLS9z8c3F4stncPLfe2ntS/view?usp=sharing" class="paper-link" target="_blank" rel="noopener">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="tab-pane" id="tab-projects" role="tabpanel">
+        <div class="pane-label">Work</div>
+        <h2 class="pane-title">Projects</h2>
+        <p class="pane-sub">Things I've built.</p>
+        <div class="projects-grid">
+
+          <div class="card featured">
+            <div class="card-header">
+              <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <h3><a href="https://www.learn2play.app/" target="_blank" rel="noopener">Learn2Play</a></h3>
+            </div>
+            <p>AI-powered native iOS app (Dart) helping kids learn through play. FastAPI backend on GCP with Firebase auth and custom AI agents for OCR content recognition. Secured HKD 100K seed funding from Cyberport CMF.</p>
+            <div class="card-footer">
+              <span class="card-lang"><span class="lang-dot" style="background:#16a34a"></span>Live · Dart / Python</span>
+              <a href="https://www.learn2play.app/" class="card-link" target="_blank" rel="noopener">Visit →</a>
+            </div>
+          </div>
+
+          <div class="card featured">
+            <div class="card-header">
+              <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+              <h3><a href="https://github.com/steveksh/Federated-Learning" target="_blank" rel="noopener">Federated Learning</a></h3>
+            </div>
+            <p>Original research and implementation of federated learning — distributed ML across decentralized devices without sharing raw data. Implements FedAvg and FedReconstruct with privacy analysis.</p>
+            <div class="card-footer">
+              <span class="card-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+              <a href="https://github.com/steveksh/Federated-Learning" class="card-link" target="_blank" rel="noopener">View →</a>
+            </div>
+          </div>
+
+          <div class="card featured">
+            <div class="card-header">
+              <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+              <h3><a href="https://github.com/steveksh/Black-Jack-RL" target="_blank" rel="noopener">Blackjack RL</a></h3>
+            </div>
+            <p>RL agent learning to play Blackjack optimally using policy evaluation, value iteration, and Monte Carlo methods. SDSC 6007 coursework.</p>
+            <div class="card-footer">
+              <span class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter / Python</span>
+              <a href="https://github.com/steveksh/Black-Jack-RL" class="card-link" target="_blank" rel="noopener">View →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <h3><a href="https://github.com/steveksh/recommendation" target="_blank" rel="noopener">Recommendation System</a></h3>
+            </div>
+            <p>Collaborative filtering and content-based recommendation engine from scratch. Matrix factorization and item-based similarity models.</p>
+            <div class="card-footer">
+              <span class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter / Python</span>
+              <a href="https://github.com/steveksh/recommendation" class="card-link" target="_blank" rel="noopener">View →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 12.5 19.79 19.79 0 0 1 1.92 4 2 2 0 0 1 3.9 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+              <h3><a href="https://github.com/steveksh/Flight-Planner-Web-App" target="_blank" rel="noopener">Flight Planner</a></h3>
+            </div>
+            <p>Web application for flight planning — handles routing, scheduling, and data lookup with a clean Python API layer.</p>
+            <div class="card-footer">
+              <span class="card-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+              <a href="https://github.com/steveksh/Flight-Planner-Web-App" class="card-link" target="_blank" rel="noopener">View →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+              <h3><a href="https://github.com/steveksh/Product-Ratings-Classifier" target="_blank" rel="noopener">Product Classifier</a></h3>
+            </div>
+            <p>NLP classifier predicting product ratings from text reviews using TF-IDF, embeddings, and gradient boosting.</p>
+            <div class="card-footer">
+              <span class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter / Python</span>
+              <a href="https://github.com/steveksh/Product-Ratings-Classifier" class="card-link" target="_blank" rel="noopener">View →</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+              <h3><a href="https://github.com/steveksh/rdashboard.io" target="_blank" rel="noopener">R Markdown Dashboard</a></h3>
+            </div>
+            <p>Interactive data visualization dashboard with R Markdown — analytical storytelling with real datasets and Shiny interactivity.</p>
+            <div class="card-footer">
+              <span class="card-lang"><span class="lang-dot" style="background:#198CE7"></span>R / HTML</span>
+              <a href="https://github.com/steveksh/rdashboard.io" class="card-link" target="_blank" rel="noopener">View →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="tab-pane" id="tab-experience" role="tabpanel">
+        <div class="pane-label">Experience</div>
+        <h2 class="pane-title">Work History</h2>
+        <p class="pane-sub">Where I've applied and built.</p>
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-date">Feb 2026 – Present</div>
+            <div class="timeline-content">
+              <h4>AI Engineer</h4>
+              <div class="company">Wipro Capco · Hong Kong</div>
+              <ul class="timeline-bullets">
+                <li>Built end-to-end AI Underwriting Agent for Life Insurance on Azure with CI/CD and Docker</li>
+                <li>Architected Agent-to-Agent (A2A) orchestration for tool centralization and AI Agent Builder platforms</li>
+                <li>Built Siamese neural networks for forgery detection and wet signature verification</li>
+                <li>Developed cross-product sales intelligence tool using multi-agent workflows (orchestrator, evaluator, aggregator, domain agents)</li>
+                <li>Led ML/LLMOps workflows including ETL pipelines and monitoring on Databricks and Power BI</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Sep 2024 – Present</div>
+            <div class="timeline-content">
+              <h4>Co-owner &amp; Lead Developer</h4>
+              <div class="company">Learn2Play · Hong Kong</div>
+              <ul class="timeline-bullets">
+                <li>Secured HKD 100K seed funding from Cyberport Creative Micro Fund</li>
+                <li>End-to-end development of native iOS app (Dart) and FastAPI backend deployed on GCP</li>
+                <li>Integrated custom AI agents for OCR-based content recognition with Firebase and MySQL auth</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Jun 2024 – Jan 2026</div>
+            <div class="timeline-content">
+              <h4>Regional Data Scientist</h4>
+              <div class="company">Richemont · Hong Kong</div>
+              <ul class="timeline-bullets">
+                <li>Delivered propensity-model pipelines (XGB/RF/LGBM) driving €3M+ incremental product sales (FY25–26)</li>
+                <li>Deployed Deep Matrix Factorization and GRU models with 68–82% Top-K accuracy for product recommendations</li>
+                <li>Productionized 14 boutique performance forecasting models at 60–85% monthly accuracy</li>
+                <li>Deployed product-recommendation AI agent powered by Chainlit, LangGraph, ChromaDB, MCPs, and Redis</li>
+                <li>Implemented Variational Autoencoders and Federated Learning to mask PIIs for model training</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Jul 2022 – Jun 2024</div>
+            <div class="timeline-content">
+              <h4>Data Scientist</h4>
+              <div class="company">Hotmob Limited · Hong Kong</div>
+              <ul class="timeline-bullets">
+                <li>Fine-tuned and deployed a Content Classification Model (BERT) at 66% accuracy using FastAPI and Docker</li>
+                <li>Built fraud detection models for insurance claims using Keras and Azure ML Studio (70% Recall)</li>
+                <li>Developed in-house RAG chatbots with graph generation using FAISS, PaLM, LangChain, and Looker SDK</li>
+                <li>Python API developer for in-house AI marketing content generator (Django, Gemini, RAG)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Jan – Aug 2020</div>
+            <div class="timeline-content">
+              <h4>Research Analyst</h4>
+              <div class="company">Ontario Ministry of Infrastructure · Toronto</div>
+              <ul class="timeline-bullets">
+                <li>Migrated legacy SQL scripts to R, optimizing data workflows with custom geocoding functions</li>
+                <li>Location analysis with spatial data, geocoding, and construction funding estimates using R and SQL</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Sep – Dec 2018</div>
+            <div class="timeline-content">
+              <h4>Project Assistant / Learning Developer</h4>
+              <div class="company">Seneca College · Markham, ON</div>
+              <ul class="timeline-bullets">
+                <li>Designed online courses and vector arts using Articulate 360, WordPress, and Adobe Creative Cloud</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Jan – Apr 2018</div>
+            <div class="timeline-content">
+              <h4>Event Management Trainee</h4>
+              <div class="company">Canadian Chamber of Commerce · Hong Kong</div>
+              <ul class="timeline-bullets">
+                <li>Monitored membership database and produced P&amp;L reports using Excel and NeonCRM</li>
+                <li>Designed infographics, booklets, and marketing campaigns using Adobe CC and Mailchimp</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="tab-pane" id="tab-education" role="tabpanel">
+        <div class="pane-label">Education</div>
+        <h2 class="pane-title">Academic Background</h2>
+        <p class="pane-sub">Degrees and certifications.</p>
+        <div class="edu-list">
+
+          <div class="edu-card">
+            <h4>Master of Data Science (MSDS)</h4>
+            <div class="edu-school">City University of Hong Kong · Hong Kong</div>
+            <div class="edu-meta">
+              2023 – 2025 &nbsp;·&nbsp; 4.0 GPA &nbsp;·&nbsp; Distinction<br>
+              Research: Multimodal Recommendation Systems &amp; Federated Learning<br>
+              Courses: NLP, Stochastic Optimizations, Dynamic Programming &amp; Reinforcement Learning
+            </div>
+            <span class="edu-badge">Distinction</span>
+          </div>
+
+          <div class="edu-card">
+            <h4>Bachelor of Arts — Econometrics &amp; Business (Co-op)</h4>
+            <div class="edu-school">University of Waterloo · Kitchener, ON</div>
+            <div class="edu-meta">2016 – 2021 &nbsp;·&nbsp; 3.7 GPA &nbsp;·&nbsp; Distinction</div>
+            <span class="edu-badge">Distinction</span>
+          </div>
+
+          <div class="edu-card">
+            <h4>Professional Machine Learning Engineer (PMLE)</h4>
+            <div class="edu-school">Google Cloud · Certification</div>
+            <div class="edu-meta">Certified: May 2026</div>
+            <span class="edu-badge">Certified</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="tab-pane" id="tab-contact" role="tabpanel">
+        <div class="pane-label">Contact</div>
+        <h2 class="pane-title">Get In Touch</h2>
+        <p class="pane-sub">Open to AI/ML projects, research collaborations, and opportunities.</p>
+        <div class="contact-links">
+          <a href="https://github.com/steveksh" class="contact-link" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/steve-kan-789907157" class="contact-link" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:kanstevie4@gmail.com" class="contact-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            kanstevie4@gmail.com
+          </a>
+        </div>
+      </div>
+
+    </div><!-- end tab-content-wrapper -->
+  </main>
+
+</div><!-- end site-wrapper -->
 
 <script src="js/main.js"></script>
 </body>
