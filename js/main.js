@@ -50,11 +50,17 @@
     btn.setAttribute('aria-expanded', String(isOpen));
   });
 
-  // Exposed for inline onclick on drawer links
   window.closeDrawer = function () {
     drawer.classList.remove('open');
     btn.setAttribute('aria-expanded', 'false');
   };
+
+  drawer.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      drawer.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
 })();
 
 // ── SCROLL FADE-IN ───────────────────────────────────────────
