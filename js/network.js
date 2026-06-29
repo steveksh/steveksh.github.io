@@ -2,8 +2,8 @@
   var container = document.getElementById('network-graph');
   if (!container || typeof d3 === 'undefined') return;
 
-  var W = container.clientWidth || 900;
-  var H = 540;
+  var W = container.clientWidth || 1100;
+  var H = 720;
 
   var TYPE_COLOR = {
     center:   '#2563eb',
@@ -38,13 +38,13 @@
   var nodes = [
     { id: 'steve',     label: 'Steve Kan',    type: 'center',   r: 36 },
 
-    { id: 'capco',     label: 'Wipro Capco',  type: 'company',  r: 27 },
+    { id: 'capco',     label: 'Wipro Capco',  type: 'company',  r: 33 },
     { id: 'richemont', label: 'Richemont',    type: 'company',  r: 27 },
     { id: 'hotmob',    label: 'Hotmob',       type: 'company',  r: 27 },
     { id: 'l2p',       label: 'Learn2Play',   type: 'startup',  r: 27 },
     { id: 'research',  label: 'Research',     type: 'interest', r: 24 },
     { id: 'hobbies',   label: 'Interests',    type: 'hobby',    r: 24 },
-    { id: 'edu',       label: 'Education',    type: 'edu',      r: 24 },
+    { id: 'edu',       label: 'Education',    type: 'edu',      r: 30 },
 
     // Capco leaves
     { id: 'c1', label: 'AI Underwriting',    type: 'leaf', r: 17 },
@@ -123,6 +123,15 @@
     { source: 'hobbies',   target: 'p1' },
     { source: 'hobbies',   target: 'p2' },
     { source: 'hobbies',   target: 'p3' },
+    { source: 'hobbies',   target: 'p4' },
+
+    { source: 'steve',     target: 'edu' },
+    { source: 'edu',       target: 'e1' },
+    { source: 'edu',       target: 'e2' },
+
+    { source: 'steve',     target: 'e3' },
+    { source: 'hotmob',    target: 'h4' },
+    { source: 'rs1',       target: 'richemont' },
   ];
 
   var svg = d3.select('#network-graph')
@@ -137,11 +146,12 @@
   center.fy = H / 2;
 
   var sim = d3.forceSimulation(nodes)
+    .alphaDecay(0.008)
     .force('link', d3.forceLink(links).id(function (d) { return d.id; })
       .distance(function (d) {
         var srcType = d.source.type !== undefined ? d.source.type : '';
-        if (srcType === 'center') return 190;
-        return 100;
+        if (srcType === 'center') return 240;
+        return 120;
       })
     )
     .force('charge', d3.forceManyBody().strength(function (d) {
@@ -178,6 +188,7 @@
         .on('end', function (event, d) {
           if (!event.active) sim.alphaTarget(0);
           if (d.type !== 'center') { d.fx = null; d.fy = null; }
+          sim.alpha(0.5).restart();
         })
     );
 
@@ -198,7 +209,7 @@
     .attr('font-family', 'Inter, sans-serif')
     .attr('font-weight', function (d) { return d.type === 'leaf' ? '500' : '700'; })
     .attr('font-size', function (d) {
-      return ({ center: 12, company: 9.5, startup: 9.5, interest: 9.5, hobby: 9.5, leaf: 8 })[d.type] + 'px';
+      return ({ center: 10, company: 9.5, startup: 9.5, interest: 9.5, hobby: 9.5, edu: 9.5, leaf: 8 })[d.type] + 'px';
     })
     .style('pointer-events', 'none')
     .style('user-select', 'none')
@@ -222,8 +233,9 @@
       .attr('y2', function (d) { return d.target.y; });
 
     node.attr('transform', function (d) {
-      var x = Math.max(d.r + 4, Math.min(W - d.r - 4, d.x));
-      var y = Math.max(d.r + 4, Math.min(H - d.r - 4, d.y));
+      var pad = d.r + 18;
+      var x = Math.max(pad, Math.min(W - pad, d.x));
+      var y = Math.max(pad, Math.min(H - pad, d.y));
       return 'translate(' + x + ',' + y + ')';
     });
   });
