@@ -33,7 +33,7 @@
   var el = document.getElementById('typed-text');
   if (!el) return;
 
-  var phrases = ['AI Engineer', 'Federated Learning', 'LLM Agents', 'Reinforcement Learning', 'RecSys'];
+  var phrases = ['AI Engineer', 'Data Scientist / Data Engineer', 'Machine Learning Engineer', 'Cloud Solution Architect', 'Federated Learning', 'Agentic Workflows', 'Reinforcement Learning', 'Recommendation Systems'];
   var phraseIndex = 0;
   var charIndex = 0;
   var deleting = false;
