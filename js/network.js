@@ -3,7 +3,7 @@
   if (!container || typeof d3 === 'undefined') return;
 
   var W = container.clientWidth || 1100;
-  var H = 720;
+  var H = container.clientHeight || 720;
 
   var TYPE_COLOR = {
     center:   '#2563eb',

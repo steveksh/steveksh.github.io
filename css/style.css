@@ -661,7 +661,7 @@ html, body {
   .sidebar-avatar { width: 44px; height: 44px; }
   .sidebar-name { font-size: 0.95rem; }
   .sidebar-typed { font-size: 0.75rem; }
-  .sidebar-tags { display: none; }
+  .sidebar-sections { display: none; }
   .sidebar-divider { display: none; }
 
   .sidebar-links {
@@ -683,6 +683,7 @@ html, body {
   .timeline-item { grid-template-columns: 1fr; gap: 0.2rem; }
   .paper-card { flex-direction: column; gap: 0.7rem; }
   .paper-link { align-self: flex-start; }
+  .network-container { height: 420px; }
 }
 
 @media (max-width: 480px) {
